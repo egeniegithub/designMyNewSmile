@@ -16,7 +16,7 @@ function SignUp(props) {
                 onPress={() => {}}
             />
             <View style={styles.container}>
-                <ProgressBar />
+                <ProgressBar stepNumber = {1}/>
                 <Text style={styles.signUpText}>SIGNIUP NOW</Text>
                 <View style={{ width: '90%' }}>
                     <InputField
