@@ -11,13 +11,16 @@ function SignUp(props) {
     return (
         <KeyboardAwareScrollView>
             <CustomHeader
-                title="Personal Information"
+                title="Select Treatment"
                 leftIcon="menu"
-                onPress={() => {}}
+                onPress={() => { }}
             />
             <View style={styles.container}>
-                <ProgressBar stepNumber = {1}/>
-                <Text style={styles.signUpText}>SIGNIUP NOW</Text>
+                <ProgressBar stepNumber={2} />
+                <View style={styles.HeadingTextContainer}>
+                    <Text style={styles.signUpText}>HELP US CUSTOMIZE YOUR</Text>
+                    <Text style={styles.signUpText}>TREATMENT OPTIONS</Text>
+                </View>
                 <View style={{ width: '90%' }}>
                     <InputField
                         placeholder="What is your Name?"
@@ -25,17 +28,11 @@ function SignUp(props) {
                     <InputField
                         placeholder="What is your Email Address?"
                     />
-                    <InputField
-                        placeholder="what is your Contact Number?"
-                    />
-                    <InputField
-                        placeholder="What is your Date of Birth?"
-                    />
                 </View>
                 <CustomButton
                     text={"MOVE TO NEXT"}
                     style={styles.customButton}
-                    onPress={() => props.navigation.navigate('SelectTreatment')}
+                    onPress={() => alert('k i i i i k')}
                 />
             </View>
         </KeyboardAwareScrollView>

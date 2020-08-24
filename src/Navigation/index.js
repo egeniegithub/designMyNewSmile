@@ -14,6 +14,7 @@ import SignUp from "../containers/SignUp";
 import Profile from "../containers/Profile";
 import Settings from "../containers/Settings";
 import LogOut from "../containers/LogOut";
+import SelectTreatment from '../containers/SelectTreatment';
 
 
 
@@ -74,6 +75,7 @@ function Navigation() {
                 <Stack.Screen name="Splash" component={Splash} />
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="SignUp" component={SignUp} />
+                <Stack.Screen name="SelectTreatment" component={SelectTreatment} />
                 <Stack.Screen name="Dashboard" component={DrawerNavigator} />
             </Stack.Navigator>
         </NavigationContainer>

@@ -8,11 +8,7 @@ function CustomButton(props) {
     return (
         <Button
             style={[{ justifyContent: 'center' }, props.style]}
-            onPress={() => {
-                if (!props.customButtonClick) {
-                    props.onPressLoginButton();
-                }
-            }}>
+            onPress={props.onPress}>
 
             {
                 props.customButtonClick ?

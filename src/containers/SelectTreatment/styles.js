@@ -7,10 +7,14 @@ const styles = StyleSheet.create({
         marginTop: 20,
         alignItems: 'center'
     },
+    HeadingTextContainer: {
+        flex: 1,
+        marginTop: 15,
+        alignItems: 'center',
+    },
     signUpText: {
         color: colors.SecondryColor,
         fontSize: 18,
-        margin: 15,
         fontWeight: '700'
     },
     customButton: {
