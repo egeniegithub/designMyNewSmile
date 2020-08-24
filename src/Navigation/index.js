@@ -5,7 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import * as colors from '../Theme/Color';
+import colors from '../Theme/color';
 import Splash from "../containers/Splash";
 import Login from "../containers/Login";
 import Home from "../containers/Dashboard/Home";

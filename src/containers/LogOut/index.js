@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Spinner, View } from 'native-base';
 import { connect } from 'react-redux';
-import * as colors from '../../Theme/Color';
+import colors from '../../Theme/color';
 import styles from '../Login/styles';
 import { actions as userAction } from '../../redux/actions/UserAction';
 
