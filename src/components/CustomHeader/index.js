@@ -15,7 +15,7 @@ function CustomHeader(props) {
                     </Button>
                 }
             </Left>
-            <Body>
+            <Body style={styles.body}>
                 <Title style={styles.title}>{props.title}</Title>
             </Body>
             <Right>

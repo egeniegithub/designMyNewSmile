@@ -1,43 +1,37 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './styles';
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 import CustomHeader from '../../components/CustomHeader';
 
-function backArrowPress(props) {
-    props.navigation.goBack();
-}
-
 function SignUp(props) {
     return (
         <KeyboardAwareScrollView>
             <CustomHeader
-                title="Sign Up"
-                leftIcon="arrow-back"
-                onPress={() => backArrowPress(props)}
+                title="Personal Information"
+                leftIcon="menu"
+                onPress={() => {}}
             />
             <View style={styles.container}>
+                <Text style={styles.signUpText}>SIGNIUP NOW</Text>
                 <View style={{ width: '90%' }}>
                     <InputField
-                        placeholder="UserName"
+                        placeholder="What is your Name?"
                     />
                     <InputField
-                        placeholder="Age"
+                        placeholder="What is your Email Address?"
                     />
                     <InputField
-                        placeholder="Phone No"
+                        placeholder="what is your Contact Number?"
                     />
                     <InputField
-                        placeholder="City"
-                    />
-                    <InputField
-                        placeholder="Password"
+                        placeholder="What is your Date of Birth?"
                     />
                 </View>
                 <CustomButton
-                    text={"SignUp"}
+                    text={"MOVE TO NEXT"}
                     style={styles.customButton}
                 />
             </View>

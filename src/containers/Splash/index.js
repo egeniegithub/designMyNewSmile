@@ -16,7 +16,10 @@ function Splash(props) {
     //         }
     //     }, 2000)
     // }, []);
-    
+
+    function onPressGetStarted () {
+        props.navigation.navigate('SignUp')
+    }
 
     return (
         <View style={styles.container}>
@@ -27,7 +30,9 @@ function Splash(props) {
             <View style={styles.splashBody}>
                 <Text style={styles.splashText}>GET YOUR TREATMENT DONE</Text>
                 <Text style={styles.splashDetail}>Just 3 easy steps to get a new smile!</Text>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity
+                    onPress={onPressGetStarted}
+                    style={styles.button}>
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
                 <Text style={styles.copyrightText}>copyright @ DesignMySmile 2020</Text>
