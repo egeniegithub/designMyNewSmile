@@ -5,6 +5,7 @@ import styles from './styles';
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 import CustomHeader from '../../components/CustomHeader';
+import ProgressBar from './../../components/ProgressBar';
 
 function SignUp(props) {
     return (
@@ -15,6 +16,7 @@ function SignUp(props) {
                 onPress={() => {}}
             />
             <View style={styles.container}>
+                <ProgressBar />
                 <Text style={styles.signUpText}>SIGNIUP NOW</Text>
                 <View style={{ width: '90%' }}>
                     <InputField
