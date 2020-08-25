@@ -82,7 +82,7 @@ function SelectTreatment(props) {
                 <CustomButton
                     text={"MOVE TO NEXT"}
                     style={styles.customButton}
-                    onPress={() => alert(concernAboutTreatment)}
+                    onPress={() => props.navigation.navigate('PhotosAndUpload')}
                 />
             </View>
         </KeyboardAwareScrollView>

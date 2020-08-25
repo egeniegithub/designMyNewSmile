@@ -15,6 +15,7 @@ import Profile from "../containers/Profile";
 import Settings from "../containers/Settings";
 import LogOut from "../containers/LogOut";
 import SelectTreatment from '../containers/SelectTreatment';
+import PhotosAndUpload from '../containers/PhotosAndUpload';
 
 
 
@@ -76,6 +77,7 @@ function Navigation() {
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="SignUp" component={SignUp} />
                 <Stack.Screen name="SelectTreatment" component={SelectTreatment} />
+                <Stack.Screen name="PhotosAndUpload" component={PhotosAndUpload} />
                 <Stack.Screen name="Dashboard" component={DrawerNavigator} />
             </Stack.Navigator>
         </NavigationContainer>
