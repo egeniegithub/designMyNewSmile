@@ -13,6 +13,7 @@ function SelectTreatment(props) {
     const [radioButtonText, setRadioButtonText] = useState('Ceramic Veneers')
     const [radioButtonValue, setRadioButtonValue] = useState(0);
     const [veneersTreatment, setVeneersTreatment] = useState('');
+    const [concernAboutTreatment, setConcernAboutTreatment] = useState('');
     const radio_props = [
         { label: 'Ceramic Veneers', value: 0 },
         { label: 'Crowns', value: 1 },
@@ -24,7 +25,7 @@ function SelectTreatment(props) {
         SetRadioButtonText()
     }, [radioButtonValue])
 
-    function SetRadioButtonText () {
+    function SetRadioButtonText() {
         switch (radioButtonValue) {
             case 1:
                 setRadioButtonText('Crowns');
@@ -59,24 +60,29 @@ function SelectTreatment(props) {
                         initial={0}
                         buttonColor={colors.PrimaryColor}
                         buttonSize={10}
-                        style={{marginBottom: 10}}
+                        style={{ marginBottom: 10 }}
                         selectedButtonColor={colors.PrimaryColor}
                         animation={true}
-                        onPress={(value) => { 
+                        onPress={(value) => {
                             setRadioButtonValue(value)
                         }}
                     />
                     <InputField
                         placeholder="Have you done any veneers treatment before?"
+                        value={veneersTreatment}
+                        onChangeText={value => { setVeneersTreatment(value) }}
+
                     />
                     <InputField
                         placeholder="Your main concern to get the veneer Treament?"
+                        value={concernAboutTreatment}
+                        onChangeText={value => { setConcernAboutTreatment(value) }}
                     />
                 </View>
                 <CustomButton
                     text={"MOVE TO NEXT"}
                     style={styles.customButton}
-                    onPress={() => alert(radioButtonText)}
+                    onPress={() => alert(concernAboutTreatment)}
                 />
             </View>
         </KeyboardAwareScrollView>

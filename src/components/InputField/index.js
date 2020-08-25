@@ -12,6 +12,8 @@ function InputField (props) {
                 style={{fontSize: 15, }}
                 selectionColor = {colors.PrimaryColor}
                 autoCorrect= {false}
+                value={props.value}
+                onChangeText={props.onChangeText}
             />
         </Item>
 
