@@ -21,6 +21,10 @@ const styles = StyleSheet.create({
         backgroundColor: colors.Green,
         width: '40%',
         marginTop: 30
+    },
+    questionText: {
+        marginVertical: 25,
+
     }
 })
 

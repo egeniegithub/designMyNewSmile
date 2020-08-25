@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './styles';
@@ -6,8 +6,39 @@ import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from './../../components/ProgressBar';
+import RadioForm from 'react-native-simple-radio-button';
+import colors from '../../Theme/color';
 
-function SignUp(props) {
+function SelectTreatment(props) {
+    const [radioButtonText, setRadioButtonText] = useState('Ceramic Veneers')
+    const [radioButtonValue, setRadioButtonValue] = useState(0);
+    const [veneersTreatment, setVeneersTreatment] = useState('');
+    const radio_props = [
+        { label: 'Ceramic Veneers', value: 0 },
+        { label: 'Crowns', value: 1 },
+        { label: 'Laminates', value: 2 },
+        { label: 'Doctor Recommendation', value: 3 },
+    ];
+
+    useEffect(() => {
+        SetRadioButtonText()
+    }, [radioButtonValue])
+
+    function SetRadioButtonText () {
+        switch (radioButtonValue) {
+            case 1:
+                setRadioButtonText('Crowns');
+                break;
+            case 2:
+                setRadioButtonText('Laminates');
+                break;
+            case 3:
+                setRadioButtonText('Doctor Recommendation');
+                break;
+            default:
+                setRadioButtonText('Ceramic Veneers');
+        }
+    }
     return (
         <KeyboardAwareScrollView>
             <CustomHeader
@@ -22,21 +53,34 @@ function SignUp(props) {
                     <Text style={styles.signUpText}>TREATMENT OPTIONS</Text>
                 </View>
                 <View style={{ width: '90%' }}>
-                    <InputField
-                        placeholder="What is your Name?"
+                    <Text style={styles.questionText}>First, which treatment interests you?</Text>
+                    <RadioForm
+                        radio_props={radio_props}
+                        initial={0}
+                        buttonColor={colors.PrimaryColor}
+                        buttonSize={10}
+                        style={{marginBottom: 10}}
+                        selectedButtonColor={colors.PrimaryColor}
+                        animation={true}
+                        onPress={(value) => { 
+                            setRadioButtonValue(value)
+                        }}
                     />
                     <InputField
-                        placeholder="What is your Email Address?"
+                        placeholder="Have you done any veneers treatment before?"
+                    />
+                    <InputField
+                        placeholder="Your main concern to get the veneer Treament?"
                     />
                 </View>
                 <CustomButton
                     text={"MOVE TO NEXT"}
                     style={styles.customButton}
-                    onPress={() => alert('k i i i i k')}
+                    onPress={() => alert(radioButtonText)}
                 />
             </View>
         </KeyboardAwareScrollView>
     )
 }
 
-export default SignUp;
+export default SelectTreatment;
