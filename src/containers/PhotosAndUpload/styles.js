@@ -22,6 +22,20 @@ const styles = StyleSheet.create({
         width: '40%',
         marginTop: 30
     },
+    uploadImage: {
+        width: '100%',
+        height: 100,
+    },
+    imagesContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        marginTop: 30,
+    },
+    imageButtonStyle: {
+        width: '24%',
+        height: 100,
+        marginHorizontal: 8,
+    }
 })
 
 export default styles;
