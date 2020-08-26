@@ -1,12 +1,14 @@
 import React from 'react';
 import { Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 import styles from './styles';
+import colors from '../../Theme/color';
 
 function CustomHeader(props) {
     return (
         <Header
             style={styles.header}
-            iosBarStyle={'light-content'}>
+            iosBarStyle={'light-content'}
+            androidStatusBarColor={colors.SecondryColor}>
 
             <Left>
                 {props.leftIcon &&
