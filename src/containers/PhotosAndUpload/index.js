@@ -15,76 +15,72 @@ function PhotosAndUpload(props) {
     const [isForthImageClickable, setIsForthImageClickable] = useState(false);
     const [isFifthImageClickable, setIsFifthImageClickable] = useState(false);
     const [isSixImageClickable, setIsSixImageClickable] = useState(false);
+    const [firstImage, setFirstImage] = useState('');
+    const [secondImage, setSecondImage] = useState();
+    const [thirdImage, setThirdImage] = useState();
+    const [fourthImage, setFourthImage] = useState();
+    const [fifthImage, setFifthImage] = useState();
+    const [sixthImage, setSixthImage] = useState();
+
 
     const options = {
-        title: 'Select Avatar',
-        customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
-        storageOptions: {
-          skipBackup: true,
-          path: 'images',
-        },
-      };
+        title: 'Select Image',
+        quality: 0.3
+    };
 
-    function firstImageOnPress () {
+    function getImage(setImage, currentImage, nextImage) {
+        ImagePicker.showImagePicker(options, (response) => {
+            console.log('Response From Image Picker :  ', response);
+
+            if (response.didCancel) {
+                console.log('User cancelled image picker');
+            } else if (response.error) {
+                console.log('ImagePicker Error: ', response.error);
+            } else {
+                const source = { uri: response.uri };
+
+                // You can also display the image using data:
+                // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+                setImage(response.data)
+                currentImage(false)
+                nextImage(true)
+            }
+        });
+    }
+
+    function firstImageOnPress() {
         if (isFirstImageClickable) {
-            setIsSecondImageClickable(true)
-            setIsFirstImageClickable(false)
-            ImagePicker.showImagePicker(options, (response) => {
-                console.log('Response From Image Picker :  ', response);
-              
-                if (response.didCancel) {
-                  console.log('User cancelled image picker');
-                } else if (response.error) {
-                  console.log('ImagePicker Error: ', response.error);
-                } else if (response.customButton) {
-                  console.log('User tapped custom button: ', response.customButton);
-                } else {
-                  const source = { uri: response.uri };
-              
-                  // You can also display the image using data:
-                  // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-
-                }
-              });
+            getImage(setFirstImage, setIsFirstImageClickable,  setIsSecondImageClickable);
         }
     }
 
-    function secondImageOnPress () {
+    function secondImageOnPress() {
         if (isSecondImageClickable) {
-            setIsThirdImageClickable(true)
-            setIsSecondImageClickable(false)
-            alert('Second Image')
+            getImage(setSecondImage, setIsSecondImageClickable,  setIsThirdImageClickable);
         }
     }
 
-    function thirdImageOnPress () {
+    function thirdImageOnPress() {
         if (isThirdImageClickable) {
-            setIsThirdImageClickable(false)
-            setIsForthImageClickable(true)
-            alert('Third Image')
+            getImage(setThirdImage, setIsThirdImageClickable,  setIsForthImageClickable);
         }
     }
 
-    function forthImageOnPress () {
+    function forthImageOnPress() {
         if (isForthImageClickable) {
-            setIsForthImageClickable(false)
-            setIsFifthImageClickable(true)
-            alert('Fourth Image')
+            getImage(setFourthImage, setIsForthImageClickable,  setIsFifthImageClickable);
         }
     }
 
-    function fifthImageOnPress () {
+    function fifthImageOnPress() {
         if (isFifthImageClickable) {
-            setIsFifthImageClickable(false)
-            setIsSixImageClickable(true)
-            alert('Five Image')
+            getImage(setFifthImage, setIsFifthImageClickable,  setIsSixImageClickable);
         }
     }
 
-    function sixImageOnPress () {
+    function sixImageOnPress() {
         if (isSixImageClickable) {
-            setIsSixImageClickable(false)
-            alert('Six Image')
+            getImage(setSixthImage, setIsSixImageClickable, setIsFirstImageClickable);
         }
     }
 
@@ -106,60 +102,103 @@ function PhotosAndUpload(props) {
                     <TouchableOpacity
                         style={styles.imageButtonStyle}
                         onPress={firstImageOnPress}>
-                        <Image
-                            source={require('../../assets/upload.png')}
-                            style={styles.uploadImage}
-                        />
+                        {firstImage ?
+                            <Image
+                                source={{ uri: 'data:image/jpeg;base64,' + firstImage }}
+                                style={styles.uploadImage}
+                            />
+                            :
+                            <Image
+                                source={require('../../assets/upload.png')}
+                                style={styles.uploadImage}
+                            />
+                        }
+
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.imageButtonStyle}
                         onPress={secondImageOnPress}>
-                        <Image
-                            source={require('../../assets/upload.png')}
-                            style={styles.uploadImage}
-                        />
+                        {secondImage ?
+                            <Image
+                                source={{ uri: `data:image/jpeg;base64,${secondImage}` }}
+                                style={styles.uploadImage}
+                            />
+                            :
+                            <Image
+                                source={require('../../assets/upload.png')}
+                                style={styles.uploadImage}
+                            />
+                        }
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.imageButtonStyle}
                         onPress={thirdImageOnPress}>
-                        <Image
-                            source={require('../../assets/upload.png')}
-                            style={styles.uploadImage}
-                        />
+                        {thirdImage ?
+                            <Image
+                                source={{ uri: `data:image/jpeg;base64,${thirdImage}` }}
+                                style={styles.uploadImage}
+                            />
+                            :
+                            <Image
+                                source={require('../../assets/upload.png')}
+                                style={styles.uploadImage}
+                            />
+                        }
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.imagesContainer}>
-                <TouchableOpacity
+                    <TouchableOpacity
                         style={styles.imageButtonStyle}
                         onPress={forthImageOnPress}>
-                        <Image
-                            source={require('../../assets/upload.png')}
-                            style={styles.uploadImage}
-                        />
+                        {fourthImage ?
+                            <Image
+                                source={{ uri: `data:image/jpeg;base64,${fourthImage}` }}
+                                style={styles.uploadImage}
+                            />
+                            :
+                            <Image
+                                source={require('../../assets/upload.png')}
+                                style={styles.uploadImage}
+                            />
+                        }
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.imageButtonStyle}
                         onPress={fifthImageOnPress}>
-                        <Image
-                            source={require('../../assets/upload.png')}
-                            style={styles.uploadImage}
-                        />
+                        {fifthImage ?
+                            <Image
+                                source={{ uri: `data:image/jpeg;base64,${fifthImage}` }}
+                                style={styles.uploadImage}
+                            />
+                            :
+                            <Image
+                                source={require('../../assets/upload.png')}
+                                style={styles.uploadImage}
+                            />
+                        }
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.imageButtonStyle}
                         onPress={sixImageOnPress}>
-                        <Image
-                            source={require('../../assets/upload.png')}
-                            style={styles.uploadImage}
-                        />
+                        {sixthImage ?
+                            <Image
+                                source={{ uri: `data:image/jpeg;base64,${sixthImage}` }}
+                                style={styles.uploadImage}
+                            />
+                            :
+                            <Image
+                                source={require('../../assets/upload.png')}
+                                style={styles.uploadImage}
+                            />
+                        }
                     </TouchableOpacity>
                 </View>
 
                 <CustomButton
                     text={"MOVE TO NEXT"}
                     style={styles.customButton}
-                    onPress={() => alert(concernAboutTreatment)}
+                    onPress={() => alert('test')}
                 />
             </View>
         </KeyboardAwareScrollView>
