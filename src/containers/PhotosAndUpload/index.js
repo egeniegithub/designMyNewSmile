@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Platform } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './styles';
 import CustomButton from '../../components/CustomButton';
@@ -15,7 +15,7 @@ function PhotosAndUpload(props) {
     const [isForthImageClickable, setIsForthImageClickable] = useState(false);
     const [isFifthImageClickable, setIsFifthImageClickable] = useState(false);
     const [isSixImageClickable, setIsSixImageClickable] = useState(false);
-    const [firstImage, setFirstImage] = useState('');
+    const [firstImage, setFirstImage] = useState();
     const [secondImage, setSecondImage] = useState();
     const [thirdImage, setThirdImage] = useState();
     const [fourthImage, setFourthImage] = useState();
@@ -37,11 +37,14 @@ function PhotosAndUpload(props) {
             } else if (response.error) {
                 console.log('ImagePicker Error: ', response.error);
             } else {
-                const source = { uri: response.uri };
 
-                // You can also display the image using data:
-                // const source = { uri: 'data:image/jpeg;base64,' + response.data };
-                setImage(response.data)
+                let source = {}
+                if (Platform.OS === 'android') {
+                    source ={ uri: `data:image/jpeg;base64,${response.data}` }
+                } else {
+                    source ={ uri: response.uri }
+                }
+                setImage(source)
                 currentImage(false)
                 nextImage(true)
             }
@@ -104,7 +107,7 @@ function PhotosAndUpload(props) {
                         onPress={firstImageOnPress}>
                         {firstImage ?
                             <Image
-                                source={{ uri: 'data:image/jpeg;base64,' + firstImage }}
+                                source={firstImage}
                                 style={styles.uploadImage}
                             />
                             :
@@ -120,7 +123,7 @@ function PhotosAndUpload(props) {
                         onPress={secondImageOnPress}>
                         {secondImage ?
                             <Image
-                                source={{ uri: `data:image/jpeg;base64,${secondImage}` }}
+                                source={secondImage}
                                 style={styles.uploadImage}
                             />
                             :
@@ -135,7 +138,7 @@ function PhotosAndUpload(props) {
                         onPress={thirdImageOnPress}>
                         {thirdImage ?
                             <Image
-                                source={{ uri: `data:image/jpeg;base64,${thirdImage}` }}
+                                source={thirdImage}
                                 style={styles.uploadImage}
                             />
                             :
@@ -153,7 +156,7 @@ function PhotosAndUpload(props) {
                         onPress={forthImageOnPress}>
                         {fourthImage ?
                             <Image
-                                source={{ uri: `data:image/jpeg;base64,${fourthImage}` }}
+                                source={fourthImage}
                                 style={styles.uploadImage}
                             />
                             :
@@ -168,7 +171,7 @@ function PhotosAndUpload(props) {
                         onPress={fifthImageOnPress}>
                         {fifthImage ?
                             <Image
-                                source={{ uri: `data:image/jpeg;base64,${fifthImage}` }}
+                                source={fifthImage}
                                 style={styles.uploadImage}
                             />
                             :
@@ -183,7 +186,7 @@ function PhotosAndUpload(props) {
                         onPress={sixImageOnPress}>
                         {sixthImage ?
                             <Image
-                                source={{ uri: `data:image/jpeg;base64,${sixthImage}` }}
+                                source={sixthImage}
                                 style={styles.uploadImage}
                             />
                             :
