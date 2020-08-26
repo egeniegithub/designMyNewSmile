@@ -5,6 +5,7 @@ import styles from './styles';
 import CustomButton from '../../components/CustomButton';
 import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from '../../components/ProgressBar';
+import ImagePicker from 'react-native-image-picker';
 
 function PhotosAndUpload(props) {
 
@@ -15,11 +16,36 @@ function PhotosAndUpload(props) {
     const [isFifthImageClickable, setIsFifthImageClickable] = useState(false);
     const [isSixImageClickable, setIsSixImageClickable] = useState(false);
 
+    const options = {
+        title: 'Select Avatar',
+        customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+        storageOptions: {
+          skipBackup: true,
+          path: 'images',
+        },
+      };
+
     function firstImageOnPress () {
         if (isFirstImageClickable) {
             setIsSecondImageClickable(true)
             setIsFirstImageClickable(false)
-            alert('First Image')
+            ImagePicker.showImagePicker(options, (response) => {
+                console.log('Response From Image Picker :  ', response);
+              
+                if (response.didCancel) {
+                  console.log('User cancelled image picker');
+                } else if (response.error) {
+                  console.log('ImagePicker Error: ', response.error);
+                } else if (response.customButton) {
+                  console.log('User tapped custom button: ', response.customButton);
+                } else {
+                  const source = { uri: response.uri };
+              
+                  // You can also display the image using data:
+                  // const source = { uri: 'data:image/jpeg;base64,' + response.data };
+
+                }
+              });
         }
     }
 

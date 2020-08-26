@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     imageButtonStyle: {
-        width: '24%',
+        width: '25%',
         height: 100,
-        marginHorizontal: 8,
+        marginHorizontal: 6,
     }
 })
 
