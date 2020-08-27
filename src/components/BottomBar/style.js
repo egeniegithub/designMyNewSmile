@@ -15,6 +15,12 @@ const styles = StyleSheet.create({
     icon: {
         color: colors.PrimaryColor
     },
+    itemContainer: {
+        height: 50,
+        width: 65,
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 });
 
 export default styles;
