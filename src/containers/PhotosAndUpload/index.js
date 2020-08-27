@@ -201,7 +201,7 @@ function PhotosAndUpload(props) {
                 <CustomButton
                     text={"MOVE TO NEXT"}
                     style={styles.customButton}
-                    onPress={() => alert('test')}
+                    onPress={() => props.navigation.navigate('SmileDesign')}
                 />
             </View>
         </KeyboardAwareScrollView>
