@@ -4,6 +4,7 @@ import CustomHeader from '../../components/CustomHeader';
 import SmileDesignWaiting from '../../components/SmileDesignWaiting';
 import { View } from 'native-base';
 import BottomBar from '../../components/BottomBar';
+import SmilesScreen from '../../components/SmilesScreen';
 
 function SmileDesign () {
 
@@ -14,7 +15,8 @@ function SmileDesign () {
                 leftIcon="menu"
                 onPress={() => { }}
             />
-            <SmileDesignWaiting />
+            {/* <SmileDesignWaiting /> */}
+            <SmilesScreen />
             <BottomBar currentTab={4} />
         </View>
     )
