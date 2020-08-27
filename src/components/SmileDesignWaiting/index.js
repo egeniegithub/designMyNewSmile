@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import styles from './style';
 import { Icon } from 'native-base';
 
-function SmileDesignWaiting () {
+function SmileDesignWaiting() {
     return (
         <View style={styles.container}>
             <Icon name="menu" style={styles.iconLoading} />

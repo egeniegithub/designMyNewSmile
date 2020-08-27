@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './styles';
+import BottomBar from '../../components/BottomBar';
 
 
 function Splash(props) {
@@ -17,7 +18,7 @@ function Splash(props) {
     //     }, 2000)
     // }, []);
 
-    function onPressGetStarted () {
+    function onPressGetStarted() {
         props.navigation.navigate('SignUp')
     }
 
@@ -37,6 +38,7 @@ function Splash(props) {
                 </TouchableOpacity>
                 <Text style={styles.copyrightText}>copyright @ DesignMySmile 2020</Text>
             </View>
+            <BottomBar />
         </View>
     )
 }
