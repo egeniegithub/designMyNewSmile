@@ -5,7 +5,7 @@ import { CheckBox, } from 'native-base';
 import colors from '../../Theme/color';
 import CustomButton from '../CustomButton';
 
-function SmilesScreen() {
+function SmilesScreen(props) {
 
     function SingleSimle() {
         return (
@@ -38,7 +38,7 @@ function SmilesScreen() {
             <CustomButton
                 text={"Select Design"}
                 style={styles.customButton}
-                onPress={() => alert('ha hhd')}
+                onPress={() => props.navigation.navigate('GetAppointment')}
             />
         </View>
     );

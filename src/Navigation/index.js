@@ -17,6 +17,7 @@ import LogOut from "../containers/LogOut";
 import SelectTreatment from '../containers/SelectTreatment';
 import PhotosAndUpload from '../containers/PhotosAndUpload';
 import SmileDesign from '../containers/SmileDesign';
+import GetAppointment from '../containers/GetAppointment';
 
 
 
@@ -80,6 +81,7 @@ function Navigation() {
                 <Stack.Screen name="SelectTreatment" component={SelectTreatment} />
                 <Stack.Screen name="PhotosAndUpload" component={PhotosAndUpload} />
                 <Stack.Screen name="SmileDesign" component={SmileDesign} />
+                <Stack.Screen name="GetAppointment" component={GetAppointment} />
                 <Stack.Screen name="Dashboard" component={DrawerNavigator} />
             </Stack.Navigator>
         </NavigationContainer>

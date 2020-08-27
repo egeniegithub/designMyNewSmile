@@ -6,7 +6,7 @@ import { View } from 'native-base';
 import BottomBar from '../../components/BottomBar';
 import SmilesScreen from '../../components/SmilesScreen';
 
-function SmileDesign () {
+function SmileDesign (props) {
 
     return (
         <View style={{flex: 1}}>
@@ -16,7 +16,7 @@ function SmileDesign () {
                 onPress={() => { }}
             />
             {/* <SmileDesignWaiting /> */}
-            <SmilesScreen />
+            <SmilesScreen navigation = {props.navigation}/>
             <BottomBar currentTab={4} />
         </View>
     )
