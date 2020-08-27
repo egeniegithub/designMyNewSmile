@@ -8,7 +8,7 @@ function BottomBar(props) {
     return (
         <View style={styles.container}>
             <Footer>
-                <FooterTab>
+                <FooterTab style={styles.footerTabContainer}>
                     <View style={styles.itemContainer}>
                         <Icon name="home" style={[styles.icon, { color: props.currentTab === 1 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 1 ? colors.Green : colors.PrimaryColor }]}>Home</Text>
@@ -23,10 +23,10 @@ function BottomBar(props) {
                     </View>
                     <View style={styles.itemContainer}>
                         <Icon name="card" style={[styles.icon, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]} />
-                        <Text style={[styles.textStyle, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]}>Simple Design</Text>
+                        <Text style={[styles.textStyle, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]}>Smile Design</Text>
                     </View>
                     <View style={styles.itemContainer}>
-                        <Icon name="send" style={[styles.icon, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]} />
+                        <Icon name="paper-plane" style={[styles.icon, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]}>Contact</Text>
                     </View>
                 </FooterTab>

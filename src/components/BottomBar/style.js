@@ -20,6 +20,9 @@ const styles = StyleSheet.create({
         width: 65,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    footerTabContainer: {
+        backgroundColor: colors.White,
     }
 });
 
