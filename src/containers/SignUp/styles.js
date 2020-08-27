@@ -10,13 +10,13 @@ const styles = StyleSheet.create({
     signUpText: {
         color: colors.SecondryColor,
         fontSize: 18,
-        margin: 15,
         fontWeight: '700'
     },
     customButton: {
         backgroundColor: colors.Green,
         width: '40%',
-        marginTop: 30
+        marginTop: 30,
+        alignSelf: 'center'
     }
 })
 

@@ -8,8 +8,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     HeadingTextContainer: {
-        flex: 1,
-        marginTop: 15,
         alignItems: 'center',
     },
     signUpText: {
@@ -20,7 +18,8 @@ const styles = StyleSheet.create({
     customButton: {
         backgroundColor: colors.Green,
         width: '40%',
-        marginTop: 30
+        marginTop: 30,
+        alignSelf: 'center'
     },
     questionText: {
         marginVertical: 25,

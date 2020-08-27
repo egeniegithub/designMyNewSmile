@@ -1,32 +1,33 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 import styles from './style';
-import { Icon, Footer, FooterTab, Button } from 'native-base';
+import { Icon, Footer, FooterTab, Button} from 'native-base';
+import colors from '../../Theme/color';
 
-function BottomBar() {
+function BottomBar(props) {
     return (
         <View style={styles.container}>
-            <Footer >
-                <FooterTab >
-                    <Button vertical active>
-                        <Icon name="apps" style={styles.icon} />
-                        <Text style={styles.textStyle}>Home</Text>
+            <Footer>
+                <FooterTab>
+                    <Button vertical >
+                        <Icon name="home" style={[styles.icon, { color: props.currentTab === 1 ? colors.Green : colors.PrimaryColor }]} />
+                        <Text style={[styles.textStyle, { color: props.currentTab === 1 ? colors.Green : colors.PrimaryColor }]}>Home</Text>
                     </Button>
                     <Button vertical>
-                        <Icon name="apps" style={styles.icon} />
-                        <Text style={styles.textStyle}>Home</Text>
+                        <Icon name="person" style={[styles.icon, { color: props.currentTab === 2 ? colors.Green : colors.PrimaryColor }]} />
+                        <Text style={[styles.textStyle, { color: props.currentTab === 2 ? colors.Green : colors.PrimaryColor }]}>Profile</Text>
                     </Button>
                     <Button vertical>
-                        <Icon name="apps" style={styles.icon} />
-                        <Text style={styles.textStyle}>Home</Text>
+                        <Icon name="camera" style={[styles.icon, { color: props.currentTab === 3 ? colors.Green : colors.PrimaryColor }]} />
+                        <Text style={[styles.textStyle, { color: props.currentTab === 3 ? colors.Green : colors.PrimaryColor }]}>Take Photos</Text>
                     </Button>
                     <Button vertical>
-                        <Icon name="apps" style={styles.icon} />
-                        <Text style={styles.textStyle}>Home</Text>
+                        <Icon name="card" style={[styles.icon, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]} />
+                        <Text style={[styles.textStyle, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]}>Simple Design</Text>
                     </Button>
                     <Button vertical>
-                        <Icon name="apps" style={styles.icon} />
-                        <Text style={styles.textStyle}>Home</Text>
+                        <Icon name="send" style={[styles.icon, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]} />
+                        <Text style={[styles.textStyle, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]}>Contact</Text>
                     </Button>
                 </FooterTab>
             </Footer>

@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './styles';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import CustomHeader from '../../components/CustomHeader';
 import SmileDesignWaiting from '../../components/SmileDesignWaiting';
 import { View } from 'native-base';
+import BottomBar from '../../components/BottomBar';
 
 function SmileDesign () {
 
@@ -15,6 +15,7 @@ function SmileDesign () {
                 onPress={() => { }}
             />
             <SmileDesignWaiting />
+            <BottomBar currentTab={4} />
         </View>
     )
 }

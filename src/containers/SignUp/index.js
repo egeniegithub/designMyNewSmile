@@ -6,19 +6,20 @@ import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from './../../components/ProgressBar';
+import BottomBar from '../../components/BottomBar';
 
 function SignUp(props) {
     return (
-        <KeyboardAwareScrollView>
+        <View style={{ flex: 1 }}>
             <CustomHeader
                 title="Personal Information"
                 leftIcon="menu"
-                onPress={() => {}}
+                onPress={() => { }}
             />
             <View style={styles.container}>
                 <ProgressBar stepNumber = {1}/>
                 <Text style={styles.signUpText}>SIGNIUP NOW</Text>
-                <View style={{ width: '90%' }}>
+                <KeyboardAwareScrollView style={{ width: '90%', }}>
                     <InputField
                         placeholder="What is your Name?"
                     />
@@ -31,14 +32,16 @@ function SignUp(props) {
                     <InputField
                         placeholder="What is your Date of Birth?"
                     />
-                </View>
-                <CustomButton
-                    text={"MOVE TO NEXT"}
-                    style={styles.customButton}
-                    onPress={() => props.navigation.navigate('SelectTreatment')}
-                />
+                    <CustomButton
+                        text={"MOVE TO NEXT"}
+                        style={styles.customButton}
+                        onPress={() => props.navigation.navigate('SelectTreatment')}
+                    />
+                </KeyboardAwareScrollView>
+
+                <BottomBar currentTab={1} />
             </View>
-        </KeyboardAwareScrollView>
+        </View>
     )
 }
 

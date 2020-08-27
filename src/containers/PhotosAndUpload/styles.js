@@ -8,8 +8,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     HeadingTextContainer: {
-        flex: 1,
-        marginTop: 15,
         alignItems: 'center',
     },
     HeadingText: {
@@ -27,9 +25,8 @@ const styles = StyleSheet.create({
         height: 100,
     },
     imagesContainer: {
-        flex: 1,
         flexDirection: 'row',
-        marginTop: 30,
+        marginTop: 20,
     },
     imageButtonStyle: {
         width: '25%',

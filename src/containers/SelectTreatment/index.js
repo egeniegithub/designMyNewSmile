@@ -8,6 +8,7 @@ import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from './../../components/ProgressBar';
 import RadioForm from 'react-native-simple-radio-button';
 import colors from '../../Theme/color';
+import BottomBar from '../../components/BottomBar';
 
 function SelectTreatment(props) {
     const [radioButtonText, setRadioButtonText] = useState('Ceramic Veneers')
@@ -41,7 +42,7 @@ function SelectTreatment(props) {
         }
     }
     return (
-        <KeyboardAwareScrollView>
+        <View style={{ flex: 1 }}>
             <CustomHeader
                 title="Select Treatment"
                 leftIcon="menu"
@@ -53,7 +54,7 @@ function SelectTreatment(props) {
                     <Text style={styles.signUpText}>HELP US CUSTOMIZE YOUR</Text>
                     <Text style={styles.signUpText}>TREATMENT OPTIONS</Text>
                 </View>
-                <View style={{ width: '90%' }}>
+                <KeyboardAwareScrollView style={{ width: '90%', }}>
                     <Text style={styles.questionText}>First, which treatment interests you?</Text>
                     <RadioForm
                         radio_props={radio_props}
@@ -78,14 +79,16 @@ function SelectTreatment(props) {
                         value={concernAboutTreatment}
                         onChangeText={value => { setConcernAboutTreatment(value) }}
                     />
-                </View>
-                <CustomButton
+                    <CustomButton
                     text={"MOVE TO NEXT"}
                     style={styles.customButton}
                     onPress={() => props.navigation.navigate('PhotosAndUpload')}
                 />
+                </KeyboardAwareScrollView>
+                
+                <BottomBar currentTab={2} />
             </View>
-        </KeyboardAwareScrollView>
+        </View>
     )
 }
 

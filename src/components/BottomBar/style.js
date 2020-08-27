@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
         right: 0,
     },
     textStyle: {
-        fontSize: 10,
+        fontSize: 9,
         fontWeight: '500'
     },
     icon: {

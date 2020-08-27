@@ -6,6 +6,7 @@ import CustomButton from '../../components/CustomButton';
 import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from '../../components/ProgressBar';
 import ImagePicker from 'react-native-image-picker';
+import BottomBar from '../../components/BottomBar';
 
 function PhotosAndUpload(props) {
 
@@ -88,7 +89,7 @@ function PhotosAndUpload(props) {
     }
 
     return (
-        <KeyboardAwareScrollView>
+        <View style={{flex: 1}}>
             <CustomHeader
                 title={`Take Photos & Upload`}
                 leftIcon="menu"
@@ -204,7 +205,8 @@ function PhotosAndUpload(props) {
                     onPress={() => props.navigation.navigate('SmileDesign')}
                 />
             </View>
-        </KeyboardAwareScrollView>
+            <BottomBar currentTab={3} />
+        </View>
     )
 }
 

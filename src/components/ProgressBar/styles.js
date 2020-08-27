@@ -3,7 +3,7 @@ import colors from '../../Theme/color';
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height: 80
     },
     CircleHeadingContainer: {
         flexDirection: 'row',
@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
         fontSize: 7,
     },
     circleBarContainer: {
-        flex: 1, 
         flexDirection: 'row',
         justifyContent: 'center'
 
