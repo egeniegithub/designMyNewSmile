@@ -18,6 +18,7 @@ import SelectTreatment from '../containers/SelectTreatment';
 import PhotosAndUpload from '../containers/PhotosAndUpload';
 import SmileDesign from '../containers/SmileDesign';
 import GetAppointment from '../containers/GetAppointment';
+import UploadedPictures from '../containers/UploadedPicture';
 
 
 
@@ -63,6 +64,7 @@ function DrawerNavigator() {
             <Drawer.Navigator initialRouteName="Dashboard">
                 <Drawer.Screen name="Dashboard" component={Navigation} />
                 <Drawer.Screen name="Profile" component={Profile} />
+                <Drawer.Screen name="UploadedPictures" component={UploadedPictures} />
                 <Drawer.Screen name="Settings" component={Settings} />
                 <Drawer.Screen name="LogOut" component={LogOut} />
             </Drawer.Navigator>

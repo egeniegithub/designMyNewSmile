@@ -17,7 +17,7 @@ function Settings({ navigation }) {
                 onPress={() => onPressMenu(navigation)}
             />
             <View style={styles.container}>
-                <Text style={styles.signUpText}>Your account is currently active. Press the button to deactivate</Text>
+                <Text style={styles.deactivateText}>Your account is currently active. Press the button to deactivate</Text>
                 <CustomButton
                     text={"Deactivate"}
                     style={styles.customButton}

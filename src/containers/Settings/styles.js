@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    signUpText: {
+    deactivateText: {
         color: colors.Grey,
         fontSize: 18,
         fontWeight: '600',
