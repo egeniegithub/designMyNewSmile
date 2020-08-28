@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView, Image } from "react-native";
 import styles from './style';
 import CustomHeader from "../../components/CustomHeader";
 import CustomButton from '../../components/CustomButton';
@@ -19,7 +19,21 @@ function UploadedPictures(props) {
                 leftIcon="menu"
                 onPress={onPressMenuIcon}
             />
-        </View>
+
+            <ScrollView>
+                <Image
+                    source={require("../../assets/splash.png")}
+                    style={styles.image}
+                />
+                
+                <Image
+                    source={require("../../assets/splash.png")}
+                    style={styles.image}
+                />
+
+            </ScrollView>
+
+        </View >
     )
 }
 

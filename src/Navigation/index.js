@@ -64,7 +64,7 @@ function DrawerNavigator() {
             <Drawer.Navigator initialRouteName="Dashboard">
                 <Drawer.Screen name="Dashboard" component={Navigation} />
                 <Drawer.Screen name="Profile" component={Profile} />
-                <Drawer.Screen name="UploadedPictures" component={UploadedPictures} />
+                <Drawer.Screen name="Uploaded Pictures" component={UploadedPictures} />
                 <Drawer.Screen name="Settings" component={Settings} />
                 <Drawer.Screen name="LogOut" component={LogOut} />
             </Drawer.Navigator>
