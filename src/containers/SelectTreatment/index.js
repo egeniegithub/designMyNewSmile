@@ -41,12 +41,17 @@ function SelectTreatment(props) {
                 setRadioButtonText('Ceramic Veneers');
         }
     }
+
+    function onPressMenuIcon () {
+        props.navigation.toggleDrawer()
+    }
+
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader
                 title="Select Treatment"
                 leftIcon="menu"
-                onPress={() => { }}
+                onPress={onPressMenuIcon}
             />
             <View style={styles.container}>
                 <ProgressBar stepNumber={2} />

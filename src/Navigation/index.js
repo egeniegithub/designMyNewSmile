@@ -59,12 +59,14 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigator() {
     return (
-        <Drawer.Navigator initialRouteName="Dashboard">
-            <Drawer.Screen name="Dashboard" component={BottomNavigator} />
-            <Drawer.Screen name="Profile" component={Profile} />
-            <Drawer.Screen name="Settings" component={Settings} />
-            <Drawer.Screen name="LogOut" component={LogOut} />
-        </Drawer.Navigator>
+        <NavigationContainer>
+            <Drawer.Navigator initialRouteName="Dashboard">
+                <Drawer.Screen name="Dashboard" component={Navigation} />
+                <Drawer.Screen name="Profile" component={Profile} />
+                <Drawer.Screen name="Settings" component={Settings} />
+                <Drawer.Screen name="LogOut" component={LogOut} />
+            </Drawer.Navigator>
+        </NavigationContainer>
     )
 }
 
@@ -73,19 +75,16 @@ function DrawerNavigator() {
 function Navigation() {
     const Stack = createStackNavigator();
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="Splash" component={Splash} />
-                <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="SignUp" component={SignUp} />
-                <Stack.Screen name="SelectTreatment" component={SelectTreatment} />
-                <Stack.Screen name="PhotosAndUpload" component={PhotosAndUpload} />
-                <Stack.Screen name="SmileDesign" component={SmileDesign} />
-                <Stack.Screen name="GetAppointment" component={GetAppointment} />
-                <Stack.Screen name="Dashboard" component={DrawerNavigator} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <Stack.Navigator initialRouteName="Splash" screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Splash" component={Splash} />
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="SignUp" component={SignUp} />
+            <Stack.Screen name="SelectTreatment" component={SelectTreatment} />
+            <Stack.Screen name="PhotosAndUpload" component={PhotosAndUpload} />
+            <Stack.Screen name="SmileDesign" component={SmileDesign} />
+            <Stack.Screen name="GetAppointment" component={GetAppointment} />
+        </Stack.Navigator>
     )
 }
 
-export default Navigation;
+export default DrawerNavigator;

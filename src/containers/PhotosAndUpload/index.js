@@ -88,12 +88,16 @@ function PhotosAndUpload(props) {
         }
     }
 
+    function onPressMenuIcon () {
+        props.navigation.toggleDrawer()
+    }
+
     return (
         <View style={{flex: 1}}>
             <CustomHeader
                 title={`Take Photos & Upload`}
                 leftIcon="menu"
-                onPress={() => { }}
+                onPress={onPressMenuIcon}
             />
             <View style={styles.container}>
                 <ProgressBar stepNumber={3} />

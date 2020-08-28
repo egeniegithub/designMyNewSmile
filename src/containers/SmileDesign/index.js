@@ -8,12 +8,16 @@ import SmilesScreen from '../../components/SmilesScreen';
 
 function SmileDesign (props) {
 
+    function onPressMenuIcon () {
+        props.navigation.toggleDrawer()
+    }
+
     return (
         <View style={{flex: 1}}>
             <CustomHeader
                 title={`Smile Design`}
                 leftIcon="menu"
-                onPress={() => { }}
+                onPress={onPressMenuIcon}
             />
             {/* <SmileDesignWaiting /> */}
             <SmilesScreen navigation = {props.navigation}/>

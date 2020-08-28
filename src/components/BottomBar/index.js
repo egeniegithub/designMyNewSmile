@@ -25,10 +25,10 @@ function BottomBar(props) {
                         <Icon name="card" style={[styles.icon, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]}>Smile Design</Text>
                     </View>
-                    <View style={styles.itemContainer}>
+                    {/* <View style={styles.itemContainer}>
                         <Icon name="paper-plane" style={[styles.icon, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]}>Contact</Text>
-                    </View>
+                    </View> */}
                 </FooterTab>
             </Footer>
         </View>

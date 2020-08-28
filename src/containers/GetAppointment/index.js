@@ -27,12 +27,16 @@ function GetAppointment(props) {
         )
     }
 
+    function onPressMenuIcon () {
+        props.navigation.toggleDrawer()
+    }
+
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader
-                title="Get Treatment"
+                title="Get Appointment"
                 leftIcon="menu"
-                onPress={() => { }}
+                onPress={onPressMenuIcon}
             />
             <View style={styles.container}>
                 <ProgressBar stepNumber = {3}/>

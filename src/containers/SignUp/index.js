@@ -9,12 +9,15 @@ import ProgressBar from './../../components/ProgressBar';
 import BottomBar from '../../components/BottomBar';
 
 function SignUp(props) {
+    function onPressMenu() {
+        props.navigation.toggleDrawer();
+    }
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader
                 title="Personal Information"
                 leftIcon="menu"
-                onPress={() => { }}
+                onPress={onPressMenu}
             />
             <View style={styles.container}>
                 <ProgressBar stepNumber = {1}/>

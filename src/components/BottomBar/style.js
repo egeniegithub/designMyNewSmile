@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import colors from '../../Theme/color';
 
 const styles = StyleSheet.create({
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     footerTabContainer: {
-        backgroundColor: colors.White,
+        backgroundColor: Platform.OS === 'android' ? colors.White : null,
     }
 });
 
