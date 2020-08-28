@@ -1,10 +1,21 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import colors from '../../Theme/color';
 
 const styles = StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        marginTop: 10,
+        alignItems: 'center'
+    },
+    customButton: {
+        backgroundColor: colors.Green,
+        width: '40%',
+        marginTop: 30,
+        alignSelf: 'center'
+    },
+    profileHeading: {
+        fontWeight: '700',
+        marginTop: 10,
     }
 })
 
