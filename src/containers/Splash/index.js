@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './styles';
+import SmileDesignDetail from '../SmileDesignDetail';
 
 
 function Splash(props) {
@@ -23,7 +24,7 @@ function Splash(props) {
 
     return (
         <View style={styles.container}>
-            <Image
+            {/* <Image
                 style={styles.splashImage}
                 source={require('../../assets/splash.png')}
             />
@@ -36,7 +37,8 @@ function Splash(props) {
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
                 <Text style={styles.copyrightText}>copyright @ DesignMySmile 2020</Text>
-            </View>
+            </View> */}
+            <SmileDesignDetail />
         </View>
     )
 }
