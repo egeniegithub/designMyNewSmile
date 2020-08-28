@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import styles from "./styles";
 import CustomHeader from "../../components/CustomHeader";
+import CustomButton from '../../components/CustomButton';
 
 function onPressMenu(navigation) {
     navigation.toggleDrawer();
@@ -16,9 +17,12 @@ function Settings({ navigation }) {
                 onPress={() => onPressMenu(navigation)}
             />
             <View style={styles.container}>
-                <Text>
-                    Settings Screen
-            </Text>
+                <Text style={styles.signUpText}>Your account is currently active. Press the button to deactivate</Text>
+                <CustomButton
+                    text={"Deactivate"}
+                    style={styles.customButton}
+                    onPress={() => alert('Here,,,')}
+                />
             </View>
         </View>
     )
