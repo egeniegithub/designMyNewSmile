@@ -1004,6 +1004,11 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@malik.aliyev.94/react-native-before-after-slider@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@malik.aliyev.94/react-native-before-after-slider/-/react-native-before-after-slider-1.0.1.tgz#cd70b46464de2fe0af06dc30418e600081739569"
+  integrity sha1-zXC0ZGTeL+CvBtwwQY5gAIFzlWk=
+
 "@react-native-community/async-storage@^1.11.0":
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.11.0.tgz#bf81b8813080846f150c67f531987c429b442166"
