@@ -19,6 +19,7 @@ import PhotosAndUpload from '../containers/PhotosAndUpload';
 import SmileDesign from '../containers/SmileDesign';
 import GetAppointment from '../containers/GetAppointment';
 import UploadedPictures from '../containers/UploadedPicture';
+import { connect } from 'react-redux';
 
 
 
@@ -58,11 +59,12 @@ function BottomNavigator() {
 
 const Drawer = createDrawerNavigator();
 
-function DrawerNavigator() {
+function DrawerNavigator(props) {
     return (
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="Dashboard">
                 <Drawer.Screen name="Dashboard" component={Navigation} />
+                {!props.userObject && <Drawer.Screen name="Login" component={Login} />}
                 <Drawer.Screen name="Profile" component={Profile} />
                 <Drawer.Screen name="Uploaded Pictures" component={UploadedPictures} />
                 <Drawer.Screen name="Settings" component={Settings} />
@@ -89,4 +91,10 @@ function Navigation() {
     )
 }
 
-export default DrawerNavigator;
+const mapStateToProps = state => {
+    return {
+        userObject: state.user.userObject,
+    };
+};
+
+export default connect(mapStateToProps)(DrawerNavigator);
