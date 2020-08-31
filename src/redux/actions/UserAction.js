@@ -10,8 +10,14 @@ export const actions = {
             });
         }
     },
-    setSignUp: () => {
-        
+    setSignUp: (name, email, phoneNo, dob) => async dispatch => {
+        let data = await UserService.signUp(name, email, phoneNo, dob);
+        if (data.status >= 200 && data.status <= 299) {
+            return dispatch({
+                type: 'SIGNUP',
+                data: data.data.data,
+            });
+        }
     },
     setLogOut: () => {
         return {

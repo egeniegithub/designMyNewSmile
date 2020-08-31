@@ -5,11 +5,16 @@ const initialState = {
 const types = {
     LOGIN: 'LOGIN',
     LOGOUT: 'LOGOUT',
+    SIGNUP: 'SIGNUP'
 };
 
 const UserReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.LOGIN:
+            return {
+                userObject: action.data,
+            };
+        case types.SIGNUP:
             return {
                 userObject: action.data,
             };

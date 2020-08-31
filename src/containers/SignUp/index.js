@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Alert } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './styles';
@@ -9,6 +9,8 @@ import ProgressBar from './../../components/ProgressBar';
 import BottomBar from '../../components/BottomBar';
 import UserService from '../../services/UserService';
 import { alertMessage } from '../../common/functions';
+import { connect } from 'react-redux';
+import { actions } from '../../redux/actions/UserAction';
 
 function SignUp(props) {
     const [name, setName] = useState('');
@@ -27,8 +29,8 @@ function SignUp(props) {
             ''
             );
         } else {
-            let data = await UserService.signUp(name, email, phoneNo, dob);
-            console.log('Sign Up Response  >< > >> >  : ', data);
+            let signupData = await props.signUp(name, email, phoneNo, dob);
+            console.log('HERE IS DATA 1 1 1 1  1 : ', signupData);
         }
         // props.navigation.navigate('SelectTreatment')
 
@@ -81,4 +83,16 @@ function SignUp(props) {
     )
 }
 
-export default SignUp;
+const mapStateToProps = state => {
+    return {
+        userObject: state.user.userObject,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        signUp: (name, email, phoneNo, dob) => dispatch(actions.setSignUp(name, email, phoneNo, dob))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignUp);
