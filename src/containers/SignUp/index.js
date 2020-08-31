@@ -30,7 +30,11 @@ function SignUp(props) {
             );
         } else {
             let signupData = await props.signUp(name, email, phoneNo, dob);
-            console.log('HERE IS DATA 1 1 1 1  1 : ', signupData);
+            if (!signupData.error) {
+                props.navigation.navigate('login')
+            } else {
+                alert(signupData.message)
+            }
         }
         // props.navigation.navigate('SelectTreatment')
 

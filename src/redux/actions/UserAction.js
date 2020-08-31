@@ -8,6 +8,11 @@ export const actions = {
                 type: 'LOGIN',
                 data: data.data,
             });
+        } else {
+            return {
+                error: true,
+                'message': data.message
+            };
         }
     },
     setSignUp: (name, email, phoneNo, dob) => async dispatch => {
@@ -17,6 +22,11 @@ export const actions = {
                 type: 'SIGNUP',
                 data: data.data.data,
             });
+        } else {
+            return {
+                error: true,
+                'message': data.message
+            };
         }
     },
     setLogOut: () => {
