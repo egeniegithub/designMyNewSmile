@@ -19,7 +19,7 @@ function Splash(props) {
     // }, []);
 
     function onPressGetStarted() {
-        props.navigation.navigate('SignUp')
+        props.navigation.navigate('Login')
     }
 
     return (

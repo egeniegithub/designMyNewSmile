@@ -5,14 +5,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
+         alignItems: 'center',
     },
     customButton: {
         backgroundColor: colors.Green,
-        width: '80%',
-        marginTop: 15
+        width: '40%',
+        marginTop: 30,
+        alignSelf: 'center'
     },
-    signupTextContainer:{
+    signupTextContainer: {
         flexDirection: 'row',
         marginTop: 8
     },
