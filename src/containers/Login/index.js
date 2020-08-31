@@ -7,24 +7,34 @@ import styles from './styles';
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton'
 import CustomHeader from '../../components/CustomHeader';
-
+import { alertMessage } from '../../common/functions';
 
 
 
 function Login(props) {
-  const [customButtonClick, setCustomButtonClick] = useState(false);
+  const [spinnerOnButton, setSpinnerOnButton] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  async function onPressLoginButton(props) {
-    setCustomButtonClick(true);
-    alert('here is test...')
-    // let data = await props.login('hamza3', 'hamza3');
-    // if (data.data.status === 'success') {
-    //   setCustomButtonClick(false);
-    //   props.navigation.navigate('Dashboard');
-    // }
-    // else {
-    //   setCustomButtonClick(false);
-    // }
+  async function onPressLoginButton() {
+    if (!email || !password) {
+      alertMessage('Empty Field!', 'Please fill all fields.',
+        () => { },
+        ''
+      );
+    } else {
+      setSpinnerOnButton(true);
+      let data = await props.login(email, password);
+      if (!data.error) {
+        setSpinnerOnButton(false)
+        props.navigation.navigate('SelectTreatment');
+      } else {
+        alertMessage('Error!', data.message,
+          () => { setSpinnerOnButton(false) },
+          ''
+        );
+      }
+    }
   }
 
   function onPressMenu() {
@@ -43,19 +53,23 @@ function Login(props) {
           <InputField
             placeholder="Email"
             icon="person-outline"
+            value={email}
+            onChangeText={text => setEmail(text)}
           />
         </View>
         <View style={{ width: '90%' }}>
           <InputField
             placeholder="Password"
             icon="lock-closed-outline"
+            value={password}
+            onChangeText={text => setPassword(text)}
           />
         </View>
         <CustomButton
           text={"Login"}
           style={styles.customButton}
-          onPress={onPressLoginButton}
-          customButtonClick={customButtonClick}
+          onPress={!spinnerOnButton ? onPressLoginButton : () => {}}
+          customButtonClick={spinnerOnButton}
         />
       </View>
     </View>

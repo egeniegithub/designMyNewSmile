@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
          alignItems: 'center',
     },
     customButton: {
-        backgroundColor: colors.Green,
+        backgroundColor: colors.PrimaryColor,
         width: '40%',
         marginTop: 30,
         alignSelf: 'center'
