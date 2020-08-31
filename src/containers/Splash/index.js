@@ -3,23 +3,34 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './styles';
 import SmileDesignDetail from '../SmileDesignDetail';
+import { StackActions, CommonActions } from '@react-navigation/native';
 
 
 function Splash(props) {
 
-    // useEffect(() => {
-    //     let data = props.userObject;
-    //     setTimeout(() => {
-    //         if (data !== null) {
-    //             props.navigation.navigate('Dashboard')
-    //         } else {
-    //             props.navigation.navigate('Login')
-    //         }
-    //     }, 2000)
-    // }, []);
+    function resetStack(name) {
+        props.navigation.dispatch(
+            CommonActions.reset({
+                index: 1,
+                routes: [
+                    { name: name },
+                ],
+            })
+        );
+    }
 
     function onPressGetStarted() {
-        props.navigation.navigate('Login')
+        let data = props.userObject;
+        console.log('DAta here. . . ', data);
+        if (data) {
+            if (data.token && data.user.u_pic1) {
+                resetStack('SmileDesign')
+            } else if (data.token && !data.user.u_pic1) {
+                resetStack('SelectTreatment')
+            }
+        } else {
+            resetStack('SignUp')
+        }
     }
 
     return (
@@ -45,4 +56,5 @@ function Splash(props) {
 const mapStateToProps = state => ({
     userObject: state.user.userObject,
 });
+
 export default connect(mapStateToProps)(Splash);
