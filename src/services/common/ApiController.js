@@ -26,13 +26,13 @@ class Api {
         };
         try {
             const responseBody = await fetch(url, request);
+            let jsonResponse = await responseBody.json();
             if (responseBody.status >= 200 && responseBody.status <= 299) {
-                let jsonResponse = await responseBody.json();
                 return { status: responseBody.status, data: jsonResponse };
             } else if (responseBody.status >= 400 && responseBody.status < 500) {
                 let message = '';
                 if (String(responseBody) !== '') {
-                    message = String(responseBody);
+                    message = jsonResponse.message;
                 } else {
                     message = 'Request could not be performed.';
                 }
