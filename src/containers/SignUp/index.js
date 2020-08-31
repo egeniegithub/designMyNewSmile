@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './styles';
 import InputField from '../../components/InputField';
@@ -8,6 +8,7 @@ import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from './../../components/ProgressBar';
 import BottomBar from '../../components/BottomBar';
 import UserService from '../../services/UserService';
+import { alertMessage } from '../../common/functions';
 
 function SignUp(props) {
     const [name, setName] = useState('');
@@ -21,7 +22,10 @@ function SignUp(props) {
 
     async function onPressMoveToNext() {
         if (!name || !email || !phoneNo || !dob) {
-            alert('please fill all fields..')
+            alertMessage('Empty Field!' ,'Please fill all fields.', 
+            () => {}, 
+            ''
+            );
         } else {
             let data = await UserService.signUp(name, email, phoneNo, dob);
             console.log('Sign Up Response  >< > >> >  : ', data);
