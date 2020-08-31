@@ -7,11 +7,22 @@ import CustomButton from '../../components/CustomButton';
 import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from './../../components/ProgressBar';
 import BottomBar from '../../components/BottomBar';
+import UserService from '../../services/UserService';
 
 function SignUp(props) {
     function onPressMenu() {
         props.navigation.toggleDrawer();
     }
+
+   async function onPressMoveToNext () {
+        // props.navigation.navigate('SelectTreatment')
+        // let data = await UserService.signUp('test11', 'mitohi9088@kespear.com', '123456789', '11/10/2020');
+        // console.log('Sign Up Response  >< > >> >  : ', data);
+
+        let loginData = await UserService.doLogin('mitohi9088@kespear.com', 'wcg2frmrai');
+        console.log('Login Data  < >  : ', loginData);
+    }
+
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader
@@ -38,7 +49,7 @@ function SignUp(props) {
                     <CustomButton
                         text={"MOVE TO NEXT"}
                         style={styles.customButton}
-                        onPress={() => props.navigation.navigate('SelectTreatment')}
+                        onPress={onPressMoveToNext}
                     />
                 </KeyboardAwareScrollView>
 

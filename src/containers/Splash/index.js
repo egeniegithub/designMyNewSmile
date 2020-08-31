@@ -24,7 +24,7 @@ function Splash(props) {
 
     return (
         <View style={styles.container}>
-            {/* <Image
+            <Image
                 style={styles.splashImage}
                 source={require('../../assets/splash.png')}
             />
@@ -37,8 +37,8 @@ function Splash(props) {
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
                 <Text style={styles.copyrightText}>copyright @ DesignMySmile 2020</Text>
-            </View> */}
-            <SmileDesignDetail />
+            </View>
+            {/* <SmileDesignDetail /> */}
         </View>
     )
 }

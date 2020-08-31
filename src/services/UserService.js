@@ -2,12 +2,20 @@ import Api from './common/ApiController';
 import router from './common/ApiEndPoints';
 
 export default {
-    doLogin: async (login, password) => {
+    doLogin: async (u_email, u_pass) => {
         let params = {
-            login,
-            password,
-            meta_info: '',
+            u_email,
+            u_pass,
         }
         return Api.post(router.login, params)
+    },
+    signUp: async (u_fname, u_email, u_contact, u_dob) => {
+        let params = {
+            u_fname,
+            u_email,
+            u_contact,
+            u_dob
+        };
+        return Api.post(router.signUp, params);
     }
 }

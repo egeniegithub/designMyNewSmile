@@ -10,6 +10,9 @@ export const actions = {
             });
         }
     },
+    setSignUp: () => {
+        
+    },
     setLogOut: () => {
         return {
             type: 'LOGOUT',
