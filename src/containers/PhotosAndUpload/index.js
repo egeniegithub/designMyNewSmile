@@ -8,6 +8,9 @@ import ProgressBar from '../../components/ProgressBar';
 import ImagePicker from 'react-native-image-picker';
 import BottomBar from '../../components/BottomBar';
 import TreatmentService from '../../services/TreatmentService';
+import { connect } from 'react-redux';
+import { alertMessage } from '../../common/functions';
+import { actions } from '../../redux/actions/UserAction'
 
 function PhotosAndUpload(props) {
 
@@ -105,13 +108,23 @@ function PhotosAndUpload(props) {
             question2 = 'NAN';
         }
         let imagesArray = [firstImage, secondImage, thirdImage, fourthImage, fifthImage, sixthImage];
-        let dataImages = await TreatmentService.treatment(treatment, question1, question2, imagesArray);
-        console.log(' <> < > > >>   : ', dataImages);
-        // if (fourthImage) {
-
-        // } else {
-        //     alert('Please upload atleast 4 images.')
-        // }
+        if (fourthImage) {
+            let data = await props.setTreatment(treatment, question1, question2, imagesArray);
+            if (!data.error) {
+                setSpinnerOnButton(false)
+                props.navigation.navigate('SmileDesign');
+            } else {
+                alertMessage('Error!', data.message,
+                    () => { setSpinnerOnButton(false) },
+                    ''
+                );
+            }
+        } else {
+            alertMessage('Empty Field!', 'Please upload atleast 4 images.',
+        () => { },
+        ''
+      );
+        }
     }
 
     return (
@@ -237,4 +250,14 @@ function PhotosAndUpload(props) {
     )
 }
 
-export default PhotosAndUpload;
+const mapStateToProps = state => ({
+    userObject: state.user.userObject,
+});
+
+const mapDispatchToProps = dispatch => {
+    return {
+        setTreatment: (treatment, question1, question2, imagesArray) => dispatch(actions.setTreatment(treatment, question1, question2, imagesArray)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhotosAndUpload);

@@ -1,11 +1,13 @@
 const initialState = {
+    token: null,
     userObject: null,
 };
 
 const types = {
     LOGIN: 'LOGIN',
     LOGOUT: 'LOGOUT',
-    SIGNUP: 'SIGNUP'
+    SIGNUP: 'SIGNUP',
+    TREATMENT: 'TREATMENT'
 };
 
 const UserReducer = (state = initialState, action) => {
@@ -19,7 +21,12 @@ const UserReducer = (state = initialState, action) => {
                 userObject: action.data,
             };
         case types.LOGOUT:
-            return { userObject: null };
+            return { 
+                userObject: null,
+                token: null,
+            };
+        case types.TREATMENT:
+            return {userObject : action.data, }
         default:
             return state;
     }
