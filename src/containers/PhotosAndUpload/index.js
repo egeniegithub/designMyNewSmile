@@ -23,6 +23,7 @@ function PhotosAndUpload(props) {
     const [fourthImage, setFourthImage] = useState('');
     const [fifthImage, setFifthImage] = useState('');
     const [sixthImage, setSixthImage] = useState('');
+    const [spinnerOnButton, setSpinnerOnButton] = useState(false);
 
 
     const options = {
@@ -95,9 +96,15 @@ function PhotosAndUpload(props) {
 
     async function onPressMoveToNext() {
         // props.navigation.navigate('SmileDesign')
-        const { treatment, question1, question2 } = props.route.params;
+        setSpinnerOnButton(true);
+        let { treatment, question1, question2 } = props.route.params;
+        if (!question1) {
+            question1 = 'NAN';
+        }
+        if (!question2) {
+            question2 = 'NAN';
+        }
         let imagesArray = [firstImage, secondImage, thirdImage, fourthImage, fifthImage, sixthImage];
-        console.log('! ! ! ! !  : ', imagesArray , question1 ,  treatment);
         let dataImages = await TreatmentService.treatment(treatment, question1, question2, imagesArray);
         console.log(' <> < > > >>   : ', dataImages);
         // if (fourthImage) {
@@ -221,7 +228,8 @@ function PhotosAndUpload(props) {
                 <CustomButton
                     text={"Upload"}
                     style={styles.customButton}
-                    onPress={onPressMoveToNext}
+                    onPress={!spinnerOnButton ? onPressMoveToNext : () => { }}
+                    customButtonClick={spinnerOnButton}
                 />
             </View>
             <BottomBar currentTab={3} />
