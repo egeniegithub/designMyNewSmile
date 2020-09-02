@@ -1,8 +1,12 @@
+import { store } from '../../redux/store';
 class Api {
     static header() {
         return {
             Accept: 'application/json',
             'Content-Type': 'application/json',
+            Authorization: store.getState().user.userObject.token
+                ? 'Bearer ' + store.getState().user.userObject.token
+                : '',
         };
     }
 

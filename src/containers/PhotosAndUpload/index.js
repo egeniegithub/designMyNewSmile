@@ -7,6 +7,7 @@ import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from '../../components/ProgressBar';
 import ImagePicker from 'react-native-image-picker';
 import BottomBar from '../../components/BottomBar';
+import TreatmentService from '../../services/TreatmentService';
 
 function PhotosAndUpload(props) {
 
@@ -92,16 +93,18 @@ function PhotosAndUpload(props) {
         props.navigation.toggleDrawer()
     }
 
-    function onPressMoveToNext() {
+    async function onPressMoveToNext() {
         // props.navigation.navigate('SmileDesign')
         const { treatment, question1, question2 } = props.route.params;
         let imagesArray = [firstImage, secondImage, thirdImage, fourthImage, fifthImage, sixthImage];
-        console.log('! ! ! ! !  : ', imagesArray);
-        if (fourthImage) {
+        console.log('! ! ! ! !  : ', imagesArray , question1 ,  treatment);
+        let dataImages = await TreatmentService.treatment(treatment, question1, question2, imagesArray);
+        console.log(' <> < > > >>   : ', dataImages);
+        // if (fourthImage) {
 
-        } else {
-            alert('Please upload atleast 4 images.')
-        }
+        // } else {
+        //     alert('Please upload atleast 4 images.')
+        // }
     }
 
     return (
