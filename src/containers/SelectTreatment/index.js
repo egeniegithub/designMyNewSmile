@@ -42,7 +42,7 @@ function SelectTreatment(props) {
         }
     }
 
-    function onPressMenuIcon () {
+    function onPressMenuIcon() {
         props.navigation.toggleDrawer()
     }
 
@@ -85,12 +85,16 @@ function SelectTreatment(props) {
                         onChangeText={value => { setConcernAboutTreatment(value) }}
                     />
                     <CustomButton
-                    text={"MOVE TO NEXT"}
-                    style={styles.customButton}
-                    onPress={() => props.navigation.navigate('PhotosAndUpload')}
-                />
+                        text={"MOVE TO NEXT"}
+                        style={styles.customButton}
+                        onPress={() => props.navigation.navigate('PhotosAndUpload', {
+                            treatment: radioButtonText,
+                            question1: veneersTreatment,
+                            question2: concernAboutTreatment,
+                        })}
+                    />
                 </KeyboardAwareScrollView>
-                
+
                 <BottomBar currentTab={2} />
             </View>
         </View>

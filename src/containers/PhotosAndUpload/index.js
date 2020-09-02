@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity, Platform } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './styles';
@@ -16,12 +16,12 @@ function PhotosAndUpload(props) {
     const [isForthImageClickable, setIsForthImageClickable] = useState(false);
     const [isFifthImageClickable, setIsFifthImageClickable] = useState(false);
     const [isSixImageClickable, setIsSixImageClickable] = useState(false);
-    const [firstImage, setFirstImage] = useState();
-    const [secondImage, setSecondImage] = useState();
-    const [thirdImage, setThirdImage] = useState();
-    const [fourthImage, setFourthImage] = useState();
-    const [fifthImage, setFifthImage] = useState();
-    const [sixthImage, setSixthImage] = useState();
+    const [firstImage, setFirstImage] = useState('');
+    const [secondImage, setSecondImage] = useState('');
+    const [thirdImage, setThirdImage] = useState('');
+    const [fourthImage, setFourthImage] = useState('');
+    const [fifthImage, setFifthImage] = useState('');
+    const [sixthImage, setSixthImage] = useState('');
 
 
     const options = {
@@ -41,9 +41,9 @@ function PhotosAndUpload(props) {
 
                 let source = {}
                 if (Platform.OS === 'android') {
-                    source ={ uri: `data:image/jpeg;base64,${response.data}` }
+                    source = { uri: `data:image/jpeg;base64,${response.data}` }
                 } else {
-                    source ={ uri: response.uri }
+                    source = { uri: response.uri }
                 }
                 setImage(source)
                 currentImage(false)
@@ -54,31 +54,31 @@ function PhotosAndUpload(props) {
 
     function firstImageOnPress() {
         if (isFirstImageClickable) {
-            getImage(setFirstImage, setIsFirstImageClickable,  setIsSecondImageClickable);
+            getImage(setFirstImage, setIsFirstImageClickable, setIsSecondImageClickable);
         }
     }
 
     function secondImageOnPress() {
         if (isSecondImageClickable) {
-            getImage(setSecondImage, setIsSecondImageClickable,  setIsThirdImageClickable);
+            getImage(setSecondImage, setIsSecondImageClickable, setIsThirdImageClickable);
         }
     }
 
     function thirdImageOnPress() {
         if (isThirdImageClickable) {
-            getImage(setThirdImage, setIsThirdImageClickable,  setIsForthImageClickable);
+            getImage(setThirdImage, setIsThirdImageClickable, setIsForthImageClickable);
         }
     }
 
     function forthImageOnPress() {
         if (isForthImageClickable) {
-            getImage(setFourthImage, setIsForthImageClickable,  setIsFifthImageClickable);
+            getImage(setFourthImage, setIsForthImageClickable, setIsFifthImageClickable);
         }
     }
 
     function fifthImageOnPress() {
         if (isFifthImageClickable) {
-            getImage(setFifthImage, setIsFifthImageClickable,  setIsSixImageClickable);
+            getImage(setFifthImage, setIsFifthImageClickable, setIsSixImageClickable);
         }
     }
 
@@ -88,12 +88,24 @@ function PhotosAndUpload(props) {
         }
     }
 
-    function onPressMenuIcon () {
+    function onPressMenuIcon() {
         props.navigation.toggleDrawer()
     }
 
+    function onPressMoveToNext() {
+        // props.navigation.navigate('SmileDesign')
+        const { treatment, question1, question2 } = props.route.params;
+        let imagesArray = [firstImage, secondImage, thirdImage, fourthImage, fifthImage, sixthImage];
+        console.log('! ! ! ! !  : ', imagesArray);
+        if (fourthImage) {
+
+        } else {
+            alert('Please upload atleast 4 images.')
+        }
+    }
+
     return (
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
             <CustomHeader
                 title={`Take Photos & Upload`}
                 leftIcon="menu"
@@ -204,9 +216,9 @@ function PhotosAndUpload(props) {
                 </View>
 
                 <CustomButton
-                    text={"MOVE TO NEXT"}
+                    text={"Upload"}
                     style={styles.customButton}
-                    onPress={() => props.navigation.navigate('SmileDesign')}
+                    onPress={onPressMoveToNext}
                 />
             </View>
             <BottomBar currentTab={3} />
