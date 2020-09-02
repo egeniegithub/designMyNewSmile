@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../Theme/color';
+import { Platform } from 'react-native';
 
 const styles = StyleSheet.create({
     header: {
@@ -12,7 +13,8 @@ const styles = StyleSheet.create({
         color: colors.White
     },
     body: {
-        flex: 3
+        flex: 3,
+        marginLeft: Platform.OS === 'android' ? 10 : 0,
     }
 })
 
