@@ -4,8 +4,8 @@ class Api {
         return {
             Accept: 'application/json',
             'Content-Type': 'application/json',
-            Authorization: store.getState().user.userObject
-                ? 'Bearer ' + store.getState().user.userObject.token
+            Authorization: store.getState().user.token
+                ? 'Bearer ' + store.getState().user.token
                 : '',
         };
     }

@@ -20,12 +20,10 @@ function Splash(props) {
     }
 
     function onPressGetStarted() {
-        let data = props.userObject;
-        console.log('DAta here. . . ', data);
-        if (data) {
-            if (data.token && data.user.u_pic1) {
+        if (props.token) {
+            if (props.token && props.userObject.u_pic1) {
                 resetStack('SmileDesign')
-            } else if (data.token && !data.user.u_pic1) {
+            } else if (props.token && !props.userObject.u_pic1) {
                 resetStack('SelectTreatment')
             }
         } else {
@@ -55,6 +53,7 @@ function Splash(props) {
 }
 const mapStateToProps = state => ({
     userObject: state.user.userObject,
+    token: state.user.token,
 });
 
 export default connect(mapStateToProps)(Splash);

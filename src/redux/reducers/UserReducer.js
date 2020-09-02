@@ -14,7 +14,8 @@ const UserReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.LOGIN:
             return {
-                userObject: action.data,
+                userObject: action.data.user,
+                token: action.data.token
             };
         case types.SIGNUP:
             return {

@@ -121,9 +121,9 @@ function PhotosAndUpload(props) {
             }
         } else {
             alertMessage('Empty Field!', 'Please upload atleast 4 images.',
-        () => { },
-        ''
-      );
+                () => { setSpinnerOnButton(false) },
+                ''
+            );
         }
     }
 
