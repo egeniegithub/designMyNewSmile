@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './styles';
 import SmileDesignDetail from '../SmileDesignDetail';
-import { StackActions, CommonActions } from '@react-navigation/native';
+import { CommonActions } from '@react-navigation/native';
 
 
 function Splash(props) {

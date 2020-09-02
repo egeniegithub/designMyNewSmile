@@ -1,19 +1,39 @@
 import React, { useEffect } from 'react';
-import { Spinner, View } from 'native-base';
+import { View, Text } from 'native-base';
 import { connect } from 'react-redux';
 import colors from '../../Theme/color';
 import styles from '../Login/styles';
 import { actions as userAction } from '../../redux/actions/UserAction';
+import CustomHeader from '../../components/CustomHeader';
+import CustomButton from '../../components/CustomButton';
 
 function LogOut(props) {
 
-    useEffect(() => {
-        let data = props.logout();
-        props.navigation.navigate('Login');
-    }, []);
+    function onPressLoginButton() {
+        props.logout();
+        props.navigation.navigate('Splash')
+    }
+
+
+    function onPressMenu() {
+        props.navigation.toggleDrawer();
+    }
+
     return (
-        <View style={styles.container}>
-            <Spinner color={colors.Green} />
+        <View style={{ flex: 1 }}>
+            <CustomHeader
+                title="LogOut"
+                leftIcon="menu"
+                onPress={onPressMenu}
+            />
+            <View style={styles.container}>
+                <Text>Press below button to logout current user.</Text>
+                <CustomButton
+                    text={"Logout"}
+                    style={styles.customButton}
+                    onPress={onPressLoginButton}
+                />
+            </View>
         </View>
     )
 }
