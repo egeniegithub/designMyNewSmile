@@ -64,11 +64,11 @@ function DrawerNavigator(props) {
         <NavigationContainer>
             <Drawer.Navigator initialRouteName="Dashboard">
                 <Drawer.Screen name="Dashboard" component={Navigation} />
-                {!props.userObject && <Drawer.Screen name="Login" component={Login} />}
+                {!props.token && <Drawer.Screen name="Login" component={Login} />}
                 <Drawer.Screen name="Profile" component={Profile} />
                 <Drawer.Screen name="Uploaded Pictures" component={UploadedPictures} />
                 <Drawer.Screen name="Settings" component={Settings} />
-                {props.userObject && <Drawer.Screen name="LogOut" component={LogOut} />}
+                {props.token && <Drawer.Screen name="LogOut" component={LogOut} />}
             </Drawer.Navigator>
         </NavigationContainer>
     )
@@ -93,7 +93,7 @@ function Navigation() {
 
 const mapStateToProps = state => {
     return {
-        userObject: state.user.userObject,
+        token: state.user.token,
     };
 };
 
