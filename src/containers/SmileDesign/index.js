@@ -25,8 +25,11 @@ function SmileDesign(props) {
                 leftIcon="menu"
                 onPress={onPressMenuIcon}
             />
-            {/* <SmileDesignWaiting /> */}
-            <SmilesScreen navigation={props.navigation} />
+            { props.userObject.clinic_designs.length !== 0 ?
+                <SmilesScreen navigation={props.navigation} />
+                :
+                <SmileDesignWaiting />
+            }
             <BottomBar currentTab={4} />
         </View>
     )
