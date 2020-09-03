@@ -29,4 +29,9 @@ export default {
     getProfile: async () => {
         return Api.get(router.getProfile);
     },
+
+    deactivateAccount: async () => {
+        let params = {};
+        return Api.post(router.deactivateAccount, params);
+    },
 }

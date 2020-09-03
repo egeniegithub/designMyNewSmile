@@ -82,4 +82,13 @@ export const actions = {
             };
         }
     },
+
+    deactivateAccount: () => async dispatch => {
+        let data = await UserService.deactivateAccount();
+        return dispatch({
+            type: 'LOGOUT',
+        });
+    },
+
+
 };
