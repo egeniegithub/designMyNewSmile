@@ -19,6 +19,7 @@ import PhotosAndUpload from '../containers/PhotosAndUpload';
 import SmileDesign from '../containers/SmileDesign';
 import GetAppointment from '../containers/GetAppointment';
 import UploadedPictures from '../containers/UploadedPicture';
+import FAQ from '../containers/FAQ';
 import { connect } from 'react-redux';
 
 
@@ -68,6 +69,7 @@ function DrawerNavigator(props) {
                 {props.token && <Drawer.Screen name="Profile" component={Profile} />}
                 {props.token && <Drawer.Screen name="Uploaded Pictures" component={UploadedPictures} />}
                 {props.token && <Drawer.Screen name="Smile Design" component={SmileDesign} />}
+                <Drawer.Screen name="FAQ" component={FAQ} />
                 {props.token && <Drawer.Screen name="Settings" component={Settings} />}
                 {props.token && <Drawer.Screen name="LogOut" component={LogOut} />}
             </Drawer.Navigator>
