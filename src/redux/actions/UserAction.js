@@ -66,4 +66,20 @@ export const actions = {
             };
         }
     },
+
+    getProfile: () => async dispatch => {
+        let data = await UserService.getProfile();
+        if (data.status >= 200 && data.status <= 299) {
+            return dispatch({
+                type: 'UPDATEPROFILE',
+                data: data.data.data,
+                token: store.getState().user.token
+            });
+        } else {
+            return {
+                error: true,
+                'message': data.message
+            };
+        }
+    },
 };
