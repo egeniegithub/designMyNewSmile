@@ -25,4 +25,8 @@ export default {
         };
         return Api.post(router.updateProfile, params);
     },
+
+    getProfile: async () => {
+        return Api.get(router.getProfile);
+    },
 }

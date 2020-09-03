@@ -5,4 +5,5 @@ export default routes = {
     signUp: baseURL + 'signup',
     treatments: baseURL + 'treatments',
     updateProfile: baseURL + 'update_profile',
+    getProfile: baseURL + 'me',
 }
