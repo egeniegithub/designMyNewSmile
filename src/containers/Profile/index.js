@@ -6,7 +6,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 import { connect } from 'react-redux';
-import UserService from "../../services/UserService";
+import { actions } from '../../redux/actions/UserAction'
 
 
 
@@ -21,8 +21,7 @@ function Profile(props) {
     }
 
    async function onPressUpdateProfile() {
-        let data = await UserService.updateProfile(name, email, phoneNo);
-        console.log('Here is updated user profile : ', data);
+        props.updateProfile(name, phoneNo);
     }
 
     return (
@@ -81,7 +80,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        login: (userName, password) => dispatch(actions.setLogin(userName, password)),
+        updateProfile: (name, phoneNo) => dispatch(actions.updateProfile(name, phoneNo)),
     }
 }
 

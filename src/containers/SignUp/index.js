@@ -31,7 +31,7 @@ function SignUp(props) {
         } else {
             let signupData = await props.signUp(name, email, phoneNo, dob);
             if (!signupData.error) {
-                props.navigation.navigate('login')
+                props.navigation.navigate('Login')
             } else {
                 alert(signupData.message)
             }

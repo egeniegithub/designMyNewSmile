@@ -1,5 +1,6 @@
 import UserService from '../../services/UserService';
 import TreatmentService from '../../services/TreatmentService';
+import { store } from '../../redux/store';
 
 export const actions = {
     setLogin: (userName, password) => async dispatch => {
@@ -36,13 +37,27 @@ export const actions = {
         };
     },
     setTreatment: (treatment, question1, question2, imagesArray) => async dispatch => {
-        console.log('1 1 1  1 1 1 1 1 11  1 1 1 ');
         let data = await TreatmentService.treatment(treatment, question1, question2, imagesArray);
         console.log('R R R R R  R R R : ', data);
         if (data.status >= 200 && data.status <= 299) {
             return dispatch({
                 type: 'TREATMENT',
                 data: data.data.data,
+            });
+        } else {
+            return {
+                error: true,
+                'message': data.message
+            };
+        }
+    },
+    updateProfile: (name, phoneNo) => async dispatch => {
+        let data = await UserService.updateProfile(name, phoneNo);
+        if (data.status >= 200 && data.status <= 299) {
+            return dispatch({
+                type: 'UPDATEPROFILE',
+                data: data.data.data,
+                token: store.getState().user.token
             });
         } else {
             return {

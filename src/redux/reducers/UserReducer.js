@@ -7,7 +7,8 @@ const types = {
     LOGIN: 'LOGIN',
     LOGOUT: 'LOGOUT',
     SIGNUP: 'SIGNUP',
-    TREATMENT: 'TREATMENT'
+    TREATMENT: 'TREATMENT',
+    UPDATEPROFILE: 'UPDATEPROFILE',
 };
 
 const UserReducer = (state = initialState, action) => {
@@ -22,12 +23,17 @@ const UserReducer = (state = initialState, action) => {
                 userObject: action.data,
             };
         case types.LOGOUT:
-            return { 
+            return {
                 userObject: null,
                 token: null,
             };
+        case types.UPDATEPROFILE:
+            return {
+                userObject: action.data,
+                token: action.token
+            };
         case types.TREATMENT:
-            return {userObject : action.data, }
+            return { userObject: action.data, }
         default:
             return state;
     }

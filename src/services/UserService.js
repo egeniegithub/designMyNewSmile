@@ -18,10 +18,9 @@ export default {
         };
         return Api.post(router.signUp, params);
     },
-    updateProfile: async (u_fname, u_email, u_contact) => {
+    updateProfile: async (u_fname, u_contact) => {
         let params = {
             u_fname,
-            u_email,
             u_contact,
         };
         return Api.post(router.updateProfile, params);
