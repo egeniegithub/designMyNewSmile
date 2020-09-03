@@ -4,7 +4,7 @@ import CustomHeader from "../../components/CustomHeader";
 import { WebView } from 'react-native-webview';
 
 
-function HowItWork(props) {
+function AboutUs(props) {
 
     function onPressMenu() {
         props.navigation.toggleDrawer();
@@ -13,15 +13,15 @@ function HowItWork(props) {
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader
-                title="How It Work"
+                title="About Us"
                 leftIcon="menu"
                 onPress={onPressMenu}
             />
             <WebView
-                source={{ uri: 'https://leilahariridentalclinic.com/designmysmile/works.php?is_mobile=1' }}
+                source={{ uri: 'https://leilahariridentalclinic.com/designmysmile/aboutus.php?is_mobile=1' }}
             />
         </View>
     )
 }
 
-export default HowItWork;
+export default AboutUs;

@@ -21,6 +21,7 @@ import GetAppointment from '../containers/GetAppointment';
 import UploadedPictures from '../containers/UploadedPicture';
 import FAQ from '../containers/FAQ';
 import HowItWork from '../containers/HowItWork';
+import AboutUs from '../containers/AboutUs';
 import { connect } from 'react-redux';
 
 
@@ -71,6 +72,7 @@ function DrawerNavigator(props) {
                 {props.token && <Drawer.Screen name="Uploaded Pictures" component={UploadedPictures} />}
                 {props.token && <Drawer.Screen name="Smile Design" component={SmileDesign} />}
                 <Drawer.Screen name="HowItWork" component={HowItWork} />
+                <Drawer.Screen name="AboutUs" component={AboutUs} />
                 <Drawer.Screen name="FAQ" component={FAQ} />
                 {props.token && <Drawer.Screen name="Settings" component={Settings} />}
                 {props.token && <Drawer.Screen name="LogOut" component={LogOut} />}
