@@ -1,22 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text } from "react-native";
 import styles from "./styles";
 import CustomHeader from "../../components/CustomHeader";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
+import { connect } from 'react-redux';
 
-function onPressMenu(navigation) {
-    navigation.toggleDrawer();
-}
 
-function Profile({ navigation }) {
+
+function Profile(props) {
+    let { u_fname, u_email, u_contact, } = props.userObject
+    const [name, setName] = useState(u_fname);
+    const [email, setEmail] = useState(u_email);
+    const [phoneNo, setPhoneNo] = useState(u_contact);
+
+    function onPressMenu() {
+        props.navigation.toggleDrawer();
+    }
+
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader
                 title="Profile"
                 leftIcon="menu"
-                onPress={() => onPressMenu(navigation)}
+                onPress={onPressMenu}
             />
             <View style={styles.container}>
                 <KeyboardAwareScrollView style={{ width: '90%', }}>
@@ -24,17 +32,22 @@ function Profile({ navigation }) {
                     <InputField
                         placeholder="What is your Name?"
                         containerStyle={{ marginTop: 0 }}
+                        value={name}
+                        onChangeText={text => setName(text)}
                     />
                     <Text style={styles.profileHeading}>Email</Text>
                     <InputField
                         placeholder="What is your Email Address?"
                         containerStyle={{ marginTop: 0 }}
                         disabled={true}
+                        value={email}
                     />
                     <Text style={styles.profileHeading}>Phone No.</Text>
                     <InputField
                         placeholder="what is your Contact Number?"
                         containerStyle={{ marginTop: 0 }}
+                        value={phoneNo}
+                        onChangeText={text => setPhoneNo(text)}
                     />
                     <Text style={styles.profileHeading}>Password</Text>
                     <InputField
@@ -54,4 +67,16 @@ function Profile({ navigation }) {
     )
 }
 
-export default Profile;
+const mapStateToProps = state => {
+    return {
+        userObject: state.user.userObject,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        login: (userName, password) => dispatch(actions.setLogin(userName, password)),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
