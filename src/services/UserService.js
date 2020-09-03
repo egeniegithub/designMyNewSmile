@@ -17,5 +17,13 @@ export default {
             u_dob
         };
         return Api.post(router.signUp, params);
-    }
+    },
+    updateProfile: async (u_fname, u_email, u_contact) => {
+        let params = {
+            u_fname,
+            u_email,
+            u_contact,
+        };
+        return Api.post(router.updateProfile, params);
+    },
 }

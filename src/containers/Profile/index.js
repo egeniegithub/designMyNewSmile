@@ -6,6 +6,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 import { connect } from 'react-redux';
+import UserService from "../../services/UserService";
 
 
 
@@ -17,6 +18,11 @@ function Profile(props) {
 
     function onPressMenu() {
         props.navigation.toggleDrawer();
+    }
+
+   async function onPressUpdateProfile() {
+        let data = await UserService.updateProfile(name, email, phoneNo);
+        console.log('Here is updated user profile : ', data);
     }
 
     return (
@@ -57,7 +63,7 @@ function Profile(props) {
                     <CustomButton
                         text={"Update Profile"}
                         style={styles.customButton}
-                        onPress={() => props.navigation.navigate('SelectTreatment')}
+                        onPress={onPressUpdateProfile}
                     />
                 </KeyboardAwareScrollView>
 
