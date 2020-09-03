@@ -6,7 +6,8 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton';
 import { connect } from 'react-redux';
-import { actions } from '../../redux/actions/UserAction'
+import { actions } from '../../redux/actions/UserAction';
+import { alertMessage } from '../../common/functions';
 
 
 
@@ -15,13 +16,26 @@ function Profile(props) {
     const [name, setName] = useState(u_fname);
     const [email, setEmail] = useState(u_email);
     const [phoneNo, setPhoneNo] = useState(u_contact);
+    const [spinnerOnButton, setSpinnerOnButton] = useState(false);
 
     function onPressMenu() {
         props.navigation.toggleDrawer();
     }
 
-   async function onPressUpdateProfile() {
-        props.updateProfile(name, phoneNo);
+    async function onPressUpdateProfile() {
+        setSpinnerOnButton(true);
+        let data = await props.updateProfile(name, phoneNo);
+        if (!data.error) {
+            alertMessage('Congratulation!', 'Your profile has been successfully updated.',
+                () => { setSpinnerOnButton(false) },
+                ''
+            );
+        } else {
+            alertMessage('Error!', data.message,
+                () => { setSpinnerOnButton(false) },
+                ''
+            );
+        }
     }
 
     return (
@@ -62,7 +76,8 @@ function Profile(props) {
                     <CustomButton
                         text={"Update Profile"}
                         style={styles.customButton}
-                        onPress={onPressUpdateProfile}
+                        onPress={!spinnerOnButton ? onPressUpdateProfile : () => { }}
+                        customButtonClick={spinnerOnButton}
                     />
                 </KeyboardAwareScrollView>
 
