@@ -67,6 +67,7 @@ function DrawerNavigator(props) {
                 {!props.token && <Drawer.Screen name="Login" component={Login} />}
                 {props.token && <Drawer.Screen name="Profile" component={Profile} />}
                 {props.token && <Drawer.Screen name="Uploaded Pictures" component={UploadedPictures} />}
+                {props.token && <Drawer.Screen name="Smile Design" component={SmileDesign} />}
                 {props.token && <Drawer.Screen name="Settings" component={Settings} />}
                 {props.token && <Drawer.Screen name="LogOut" component={LogOut} />}
             </Drawer.Navigator>
