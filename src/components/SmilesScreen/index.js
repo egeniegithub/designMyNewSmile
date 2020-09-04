@@ -6,6 +6,7 @@ import colors from '../../Theme/color';
 import CustomButton from '../CustomButton';
 import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function SmilesScreen(props) {
     const { clinic_designs } = props.userObject;
@@ -17,10 +18,12 @@ function SmilesScreen(props) {
                     <CheckBox checked={true} color={colors.Green} style={styles.checkBox} />
                     <Text style={styles.designText}>{`Design #${data.number}`}</Text>
                 </View>
-                <Image
-                    source={{ uri: data.picture }}
-                    style={styles.designImage}
-                />
+                <TouchableOpacity onPress={() => props.navigation.navigate('SmileDesignDetail')}>
+                    <Image
+                        source={{ uri: data.picture }}
+                        style={styles.designImage}
+                    />
+                </TouchableOpacity>
             </View>
         )
     }

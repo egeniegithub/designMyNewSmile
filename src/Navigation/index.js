@@ -22,6 +22,7 @@ import UploadedPictures from '../containers/UploadedPicture';
 import FAQ from '../containers/FAQ';
 import HowItWork from '../containers/HowItWork';
 import AboutUs from '../containers/AboutUs';
+import SmileDesignDetail from '../containers/SmileDesignDetail';
 import { connect } from 'react-redux';
 
 
@@ -94,6 +95,7 @@ function Navigation() {
             <Stack.Screen name="PhotosAndUpload" component={PhotosAndUpload} />
             <Stack.Screen name="SmileDesign" component={SmileDesign} />
             <Stack.Screen name="GetAppointment" component={GetAppointment} />
+            <Stack.Screen name="SmileDesignDetail" component={SmileDesignDetail} />
         </Stack.Navigator>
     )
 }
