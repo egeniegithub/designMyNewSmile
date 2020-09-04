@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
 
 function SmileDesign(props) {
+    const {clinic_designs} = props.userObject;
 
     function onPressMenuIcon() {
         props.navigation.toggleDrawer()
@@ -25,7 +26,7 @@ function SmileDesign(props) {
                 leftIcon="menu"
                 onPress={onPressMenuIcon}
             />
-            { props.userObject.clinic_designs.length !== 0 ?
+            { clinic_designs && clinic_designs.length !== 0 ?
                 <SmilesScreen navigation={props.navigation} />
                 :
                 <SmileDesignWaiting />

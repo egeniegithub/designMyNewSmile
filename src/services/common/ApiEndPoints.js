@@ -7,4 +7,5 @@ export default routes = {
     updateProfile: baseURL + 'update_profile',
     getProfile: baseURL + 'me',
     deactivateAccount: baseURL + 'deactivate_account',
+    chooseDesign: baseURL + 'choose_design',
 }
