@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import styles from './style';
 import { CheckBox, } from 'native-base';
 import colors from '../../Theme/color';
@@ -22,9 +22,14 @@ function SmilesScreen(props) {
         )
     }
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Text style={styles.heading}>SELECT YOUR SMILE DESIGN</Text>
             <View style={styles.smilesMainContainer}>
+                <View style={styles.singleRowSmileContainer}>
+                    <SingleSimle />
+                    <SingleSimle />
+                </View>
+
                 <View style={styles.singleRowSmileContainer}>
                     <SingleSimle />
                     <SingleSimle />
@@ -40,7 +45,7 @@ function SmilesScreen(props) {
                 style={styles.customButton}
                 onPress={() => props.navigation.navigate('GetAppointment')}
             />
-        </View>
+        </ScrollView>
     );
 }
 

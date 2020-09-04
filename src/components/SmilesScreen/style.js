@@ -40,13 +40,12 @@ const styles = StyleSheet.create({
     singleRowSmileContainer: {
         flexDirection: 'row',
         width: '100%',
-        height: '40%',
+        height: 150,
         justifyContent: 'space-around',
         marginTop: 30
     },
     smilesMainContainer: {
         width: '100%',
-        height: '60%',
     },
     customButton: {
         backgroundColor: colors.Green,
