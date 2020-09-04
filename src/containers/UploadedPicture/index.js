@@ -2,12 +2,13 @@ import React from "react";
 import { View, Text, ScrollView, Image } from "react-native";
 import styles from './style';
 import CustomHeader from "../../components/CustomHeader";
-import CustomButton from '../../components/CustomButton';
+import { connect } from 'react-redux';
+import { actions } from '../../redux/actions/UserAction';
 
 
 
 function UploadedPictures(props) {
-
+    const { u_pic1, u_pic2, u_pic3, u_pic4, u_pic5, u_pic6 } = props.userObject;
     function onPressMenuIcon() {
         props.navigation.toggleDrawer();
     }
@@ -20,21 +21,71 @@ function UploadedPictures(props) {
                 onPress={onPressMenuIcon}
             />
 
-            <ScrollView>
-                <Image
-                    source={require("../../assets/splash.png")}
-                    style={styles.image}
-                />
-                
-                <Image
-                    source={require("../../assets/splash.png")}
-                    style={styles.image}
-                />
+            {
+                !u_pic1 && !u_pic2 && !u_pic3 && !u_pic4 && !u_pic5 && !u_pic6 ?
+                    <Text style={styles.textStyle}>Nothing to display</Text>
+                    :
+                    <ScrollView>
+                        {u_pic1 &&
+                            <Image
+                                source={{ uri: u_pic1 }}
+                                style={styles.image}
+                            />
+                        }
 
-            </ScrollView>
+                        {u_pic2 &&
+                            <Image
+                                source={{ uri: u_pic2 }}
+                                style={styles.image}
+                            />
+                        }
+
+                        {u_pic3 &&
+                            <Image
+                                source={{ uri: u_pic3 }}
+                                style={styles.image}
+                            />
+                        }
+
+                        {u_pic4 &&
+                            <Image
+                                source={{ uri: u_pic4 }}
+                                style={styles.image}
+                            />
+                        }
+
+                        {u_pic5 &&
+                            <Image
+                                source={{ uri: u_pic5 }}
+                                style={styles.image}
+                            />
+                        }
+
+                        {u_pic6 &&
+                            <Image
+                                source={{ uri: u_pic6 }}
+                                style={styles.image}
+                            />
+                        }
+
+                    </ScrollView>
+            }
 
         </View >
     )
 }
 
-export default UploadedPictures;
+
+const mapStateToProps = state => {
+    return {
+        userObject: state.user.userObject,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getProfile: () => dispatch(actions.getProfile()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UploadedPictures);

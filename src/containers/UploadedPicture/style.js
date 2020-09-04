@@ -13,7 +13,12 @@ const styles = StyleSheet.create({
         margin: 20,
         borderRadius: 10,
         resizeMode: 'stretch'
-    }
+    },
+    textStyle: {
+        textAlign: 'center',
+        marginTop: 40,
+        fontSize: 18
+    },
 })
 
 export default styles;
