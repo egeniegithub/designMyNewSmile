@@ -26,6 +26,12 @@ function PhotosAndUpload(props) {
     const [fourthImage, setFourthImage] = useState('');
     const [fifthImage, setFifthImage] = useState('');
     const [sixthImage, setSixthImage] = useState('');
+    const [firstImageBase, setFirstImageBase] = useState('');
+    const [secondImageBase, setSecondImageBase] = useState('');
+    const [thirdImageBase, setThirdImageBase] = useState('');
+    const [fourthImageBase, setFourthImageBase] = useState('');
+    const [fifthImageBase, setFifthImageBase] = useState('');
+    const [sixthImageBase, setSixthImageBase] = useState('');
     const [spinnerOnButton, setSpinnerOnButton] = useState(false);
 
 
@@ -34,7 +40,7 @@ function PhotosAndUpload(props) {
         quality: 0.3
     };
 
-    function getImage(setImage, currentImage, nextImage) {
+    function getImage(setImage, currentImage, nextImage, setImageBase) {
         ImagePicker.showImagePicker(options, (response) => {
             console.log('Response From Image Picker :  ', response);
 
@@ -53,43 +59,44 @@ function PhotosAndUpload(props) {
                 setImage(source)
                 currentImage(false)
                 nextImage(true)
+                setImageBase(response.data)
             }
         });
     }
 
     function firstImageOnPress() {
         if (isFirstImageClickable) {
-            getImage(setFirstImage, setIsFirstImageClickable, setIsSecondImageClickable);
+            getImage(setFirstImage, setIsFirstImageClickable, setIsSecondImageClickable, setFirstImageBase);
         }
     }
 
     function secondImageOnPress() {
         if (isSecondImageClickable) {
-            getImage(setSecondImage, setIsSecondImageClickable, setIsThirdImageClickable);
+            getImage(setSecondImage, setIsSecondImageClickable, setIsThirdImageClickable, setSecondImageBase);
         }
     }
 
     function thirdImageOnPress() {
         if (isThirdImageClickable) {
-            getImage(setThirdImage, setIsThirdImageClickable, setIsForthImageClickable);
+            getImage(setThirdImage, setIsThirdImageClickable, setIsForthImageClickable, setThirdImageBase);
         }
     }
 
     function forthImageOnPress() {
         if (isForthImageClickable) {
-            getImage(setFourthImage, setIsForthImageClickable, setIsFifthImageClickable);
+            getImage(setFourthImage, setIsForthImageClickable, setIsFifthImageClickable, setFourthImageBase);
         }
     }
 
     function fifthImageOnPress() {
         if (isFifthImageClickable) {
-            getImage(setFifthImage, setIsFifthImageClickable, setIsSixImageClickable);
+            getImage(setFifthImage, setIsFifthImageClickable, setIsSixImageClickable, setFifthImageBase);
         }
     }
 
     function sixImageOnPress() {
         if (isSixImageClickable) {
-            getImage(setSixthImage, setIsSixImageClickable, setIsFirstImageClickable);
+            getImage(setSixthImage, setIsSixImageClickable, setIsFirstImageClickable, setSixthImageBase);
         }
     }
 
@@ -107,7 +114,7 @@ function PhotosAndUpload(props) {
         if (!question2) {
             question2 = 'NAN';
         }
-        let imagesArray = [firstImage, secondImage, thirdImage, fourthImage, fifthImage, sixthImage];
+        let imagesArray = [firstImageBase, secondImageBase, thirdImageBase, fourthImageBase, fifthImageBase, sixthImageBase];
         if (fourthImage) {
             let data = await props.setTreatment(treatment, question1, question2, imagesArray);
             if (!data.error) {

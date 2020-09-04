@@ -38,11 +38,11 @@ export const actions = {
     },
     setTreatment: (treatment, question1, question2, imagesArray) => async dispatch => {
         let data = await TreatmentService.treatment(treatment, question1, question2, imagesArray);
-        console.log('R R R R R  R R R : ', data);
         if (data.status >= 200 && data.status <= 299) {
             return dispatch({
                 type: 'TREATMENT',
                 data: data.data.data,
+                token: store.getState().user.token
             });
         } else {
             return {

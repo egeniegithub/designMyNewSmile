@@ -33,7 +33,10 @@ const UserReducer = (state = initialState, action) => {
                 token: action.token
             };
         case types.TREATMENT:
-            return { userObject: action.data, }
+            return {
+                userObject: action.data,
+                token: action.token
+            }
         default:
             return state;
     }
