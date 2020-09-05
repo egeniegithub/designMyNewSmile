@@ -11,36 +11,47 @@ import UserService from '../../services/UserService';
 import { alertMessage } from '../../common/functions';
 import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
+import { CommonActions } from '@react-navigation/native';
 
 function SignUp(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNo, setPhoneNo] = useState('');
     const [dob, setDob] = useState('');
+    const [spinnerOnButton, setSpinnerOnButton] = useState(false);
 
     function onPressMenu() {
         props.navigation.toggleDrawer();
     }
 
+    function resetStack(name) {
+        props.navigation.dispatch(
+            CommonActions.reset({
+                index: 1,
+                routes: [
+                    { name: name },
+                ],
+            })
+        );
+    }
+
     async function onPressMoveToNext() {
         if (!name || !email || !phoneNo || !dob) {
-            alertMessage('Empty Field!' ,'Please fill all fields.', 
-            () => {}, 
-            ''
+            alertMessage('Empty Field!', 'Please fill all fields.',
+                () => { },
+                ''
             );
         } else {
+            setSpinnerOnButton(true)
             let signupData = await props.signUp(name, email, phoneNo, dob);
             if (!signupData.error) {
-                props.navigation.navigate('Login')
+                resetStack('Login')
             } else {
-                alert(signupData.message)
+                alertMessage('Error!', signupData.message, () => {
+                    setSpinnerOnButton(false)
+                }, '')
             }
         }
-        // props.navigation.navigate('SelectTreatment')
-
-
-        // let loginData = await UserService.doLogin('mitohi9088@kespear.com', 'wcg2frmrai');
-        // console.log('Login Data  < >  : ', loginData);
     }
 
     return (
@@ -77,7 +88,8 @@ function SignUp(props) {
                     <CustomButton
                         text={"MOVE TO NEXT"}
                         style={styles.customButton}
-                        onPress={onPressMoveToNext}
+                        onPress={!spinnerOnButton ? onPressMoveToNext : () => { }}
+                        customButtonClick={spinnerOnButton}
                     />
                 </KeyboardAwareScrollView>
 
@@ -99,4 +111,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
