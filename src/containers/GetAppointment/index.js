@@ -16,6 +16,7 @@ function GetAppointment(props) {
     const [appointmentDate, setAppointmentDate] = useState('');
     const [appointmentTime, setAppointmentTime] = useState('');
     const [noteForDoctor, setNoteForDoctor] = useState('');
+    const [spinnerOnButton, setSpinnerOnButton] = useState(false);
     function SingleSimle() {
         return (
             <View style={styles.singleSmileContainer}>
@@ -36,9 +37,19 @@ function GetAppointment(props) {
     }
 
     async function onPressSendRequest() {
-        //    let data = await ChooseDesignService.chooseDesign();
-        //    console.log(' < <> > > >  DATA  LOG : ', data);
-        alertMessage('Approved!',`${appointmentDate} , ${appointmentTime} , ${noteForDoctor}`, () => {}, '')
+        setSpinnerOnButton(true)
+        let data = await ChooseDesignService.chooseDesign('12', appointmentDate, appointmentTime, noteForDoctor);
+        if (data.status >= 200 && data.status <= 299) {
+            alertMessage('Approved!', 'You will get email soon.', () => {
+                setSpinnerOnButton(false)
+            }, '')
+        } else {
+            alertMessage('Error!', data.message, () => {
+                setSpinnerOnButton(false)
+            }, '')
+        }
+
+
     }
 
     return (
@@ -73,7 +84,8 @@ function GetAppointment(props) {
                     <CustomButton
                         text={"SEND REQUEST"}
                         style={styles.customButton}
-                        onPress={onPressSendRequest}
+                        onPress={!spinnerOnButton ? onPressSendRequest : () => { }}
+                        customButtonClick={spinnerOnButton}
                     />
                 </KeyboardAwareScrollView>
 
