@@ -31,7 +31,7 @@ export const actions = {
             };
         }
     },
-    setLogOut: () => {
+    setLogOut: () => async dispatch => {
         return {
             type: 'LOGOUT',
         };
