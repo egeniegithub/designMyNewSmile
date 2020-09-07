@@ -28,7 +28,10 @@ function SmilesScreen(props) {
                     <CheckBox checked={data.myCheckBox} onPress={data.setDesign} color={colors.Green} style={styles.checkBox} />
                     <Text style={styles.designText}>{`Design #${data.number}`}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => props.navigation.navigate('SmileDesignDetail')}>
+                <TouchableOpacity onPress={() => props.navigation.navigate('SmileDesignDetail', {
+                    originalPicture: data.originalPicture,
+                    clinicPicture: data.picture
+                })}>
                     <Image
                         source={{ uri: data.picture }}
                         style={styles.designImage}
@@ -81,6 +84,7 @@ function SmilesScreen(props) {
                         clinic_designs && clinic_designs[0] &&
                         <SingleSimle
                             picture={clinic_designs[0].d_aimage}
+                            originalPicture={clinic_designs[0].d_bimage}
                             number={1}
                             myCheckBox={firstDesign}
                             setDesign={() => {
@@ -95,6 +99,7 @@ function SmilesScreen(props) {
                         clinic_designs && clinic_designs[1] &&
                         <SingleSimle
                             picture={clinic_designs[1].d_aimage}
+                            originalPicture={clinic_designs[1].d_bimage}
                             number={2}
                             myCheckBox={secondDesign}
                             setDesign={() => {
@@ -113,6 +118,7 @@ function SmilesScreen(props) {
                             clinic_designs && clinic_designs[2] &&
                             <SingleSimle
                                 picture={clinic_designs[2].d_aimage}
+                                originalPicture={clinic_designs[2].d_bimage}
                                 number={3}
                                 myCheckBox={thirdDesign}
                                 setDesign={() => {
@@ -126,6 +132,7 @@ function SmilesScreen(props) {
                             clinic_designs && clinic_designs[3] &&
                             <SingleSimle
                                 picture={clinic_designs[3].d_aimage}
+                                originalPicture={clinic_designs[3].d_bimage}
                                 number={4}
                                 myCheckBox={forthDesign}
                                 setDesign={() => {
@@ -145,6 +152,7 @@ function SmilesScreen(props) {
                             clinic_designs && clinic_designs[4] &&
                             <SingleSimle
                                 picture={clinic_designs[4].d_aimage}
+                                originalPicture={clinic_designs[4].d_bimage}
                                 number={5}
                                 myCheckBox={fifthDesign}
                                 setDesign={() => {
@@ -158,6 +166,7 @@ function SmilesScreen(props) {
                             clinic_designs && clinic_designs[5] &&
                             <SingleSimle
                                 picture={clinic_designs[5].d_aimage}
+                                originalPicture={clinic_designs[5].d_bimage}
                                 number={6}
                                 myCheckBox={sixthDesign}
                                 setDesign={() => {

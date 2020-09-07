@@ -45,6 +45,7 @@ export default class SmileDesignDetail extends Component {
   }
 
   render() {
+    const { originalPicture, clinicPicture } = this.props.route.params;
     return (
       <View style={{ flex: 1 }}>
         <CustomHeader
@@ -53,28 +54,17 @@ export default class SmileDesignDetail extends Component {
           onPress={this.onPressGoBack}
         />
 
-        <ScrollView style={{ marginTop: 50 }} scrollEnabled={this.state.scrollEnabled}>
+        <View style={{ marginTop: 50 }} >
           <Compare initial={deviceWidth / 2} draggerWidth={50} onMoveStart={this.onMoveStart} onMoveEnd={this.onMoveEnd}>
             <Before>
-              <Image source={require('../../assets/splash.png')} style={{ width: deviceWidth, height: deviceWidth / 2 }} />
+              <Image source={{ uri: originalPicture }} style={{ width: deviceWidth, height: deviceWidth / 2 }} />
             </Before>
             <After>
-              <Image source={require('../../assets/pic1.jpeg')} style={{ width: deviceWidth, height: deviceWidth / 2 }} />
+              <Image source={{ uri: clinicPicture }} style={{ width: deviceWidth, height: deviceWidth / 2 }} />
             </After>
             <DefaultDragger />
           </Compare>
-          <View style={{ marginTop: 30 }}>
-            <Compare initial={deviceWidth / 2} draggerWidth={50} onMoveStart={this.onMoveStart} onMoveEnd={this.onMoveEnd} >
-              <Before>
-                <Image source={require('../../assets/splash.png')} style={{ width: deviceWidth, height: deviceWidth / 2 }} />
-              </Before>
-              <After>
-                <Image source={require('../../assets/pic1.jpeg')} style={{ width: deviceWidth, height: deviceWidth / 2 }} />
-              </After>
-              <DefaultDragger />
-            </Compare>
-          </View>
-        </ScrollView>
+        </View>
       </View>
     );
   }
