@@ -9,7 +9,7 @@ function SmileDesignWaiting() {
             <Icon name="funnel" style={styles.iconLoading} />
             <Text style={styles.sdWaitingHeading}>SMILE DESIGN UNDER PROCESS,</Text>
             <Text style={styles.sdWaitingHeading}>WE ARE WORKING ON IT</Text>
-            <Text style={styles.sdWaitingDetail}>Normally it will take 3-5 days, thansk for you patience</Text>
+            <Text style={styles.sdWaitingDetail}>Normally it will take 3-5 days, thanks for your patience</Text>
         </View>
     );
 }
