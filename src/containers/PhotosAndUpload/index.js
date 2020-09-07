@@ -172,11 +172,54 @@ function PhotosAndUpload(props) {
         return (
             <Modal isVisible={isModalVisible}>
                 <View style={{ height: "60%", backgroundColor: 'white', padding: 8 }}>
-                    <ScrollView>
+                    {/* <ScrollView>
                         <Text style={styles.modalText}>
                             {imgaeInstructions}
                         </Text>
-                    </ScrollView>
+                    </ScrollView> */}
+                    {
+                        isFirstImageClickable && <Image
+                            source={require('../../assets/instruction1.png')}
+                            style={{ width: "100%", height: "85%", resizeMode: "contain" }}
+                        />
+                    }
+
+                    {
+                        isSecondImageClickable && <Image
+                            source={require('../../assets/instruction2.png')}
+                            style={{ width: "100%", height: "85%", resizeMode: "contain" }}
+                        />
+                    }
+
+                    {
+                        isThirdImageClickable && <Image
+                            source={require('../../assets/instruction3.png')}
+                            style={{ width: "100%", height: "85%", resizeMode: "contain" }}
+                        />
+                    }
+
+                    {
+                        isForthImageClickable && <Image
+                            source={require('../../assets/instruction4.png')}
+                            style={{ width: "100%", height: "85%", resizeMode: "contain" }}
+                        />
+                    }
+
+                    {
+                        isFifthImageClickable && <Image
+                            source={require('../../assets/instruction5.png')}
+                            style={{ width: "100%", height: "85%", resizeMode: "contain" }}
+                        />
+                    }
+
+                    {
+                        isSixImageClickable && <Image
+                            source={require('../../assets/instruction6.png')}
+                            style={{ width: "100%", height: "85%", resizeMode: "contain" }}
+                        />
+                    }
+
+
                     <View style={styles.modalFooter}>
                         <View style={styles.footerDivider} />
                         <View style={styles.modalFooterRow}>
