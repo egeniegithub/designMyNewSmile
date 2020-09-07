@@ -1,4 +1,4 @@
-package com.starterkit;
+package com.designmynewSmile;
 
 import com.facebook.react.ReactActivity;
 
