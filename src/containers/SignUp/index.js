@@ -63,7 +63,7 @@ function SignUp(props) {
             />
             <View style={styles.container}>
                 <ProgressBar stepNumber={1} />
-                <Text style={styles.signUpText}>SIGNIUP NOW</Text>
+                <Text style={styles.signUpText}>SIGNUP NOW</Text>
                 <KeyboardAwareScrollView style={{ width: '90%', }}>
                     <InputField
                         placeholder="What is your Name?"
@@ -76,7 +76,7 @@ function SignUp(props) {
                         onChangeText={text => setEmail(text)}
                     />
                     <InputField
-                        placeholder="what is your Contact Number?"
+                        placeholder="What is your Contact Number?"
                         value={phoneNo}
                         onChangeText={text => setPhoneNo(text)}
                     />
