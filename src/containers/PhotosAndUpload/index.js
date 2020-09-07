@@ -12,6 +12,14 @@ import { connect } from 'react-redux';
 import { alertMessage } from '../../common/functions';
 import { actions } from '../../redux/actions/UserAction'
 import Modal from 'react-native-modal';
+import {
+    firstImageInstructions,
+    secondImageInstructions,
+    thirdImageInstructions,
+    forthImageInstructions,
+    fifthImageInstructions,
+    sixthImageInstructions
+} from '../../common/values';
 
 function PhotosAndUpload(props) {
 
@@ -34,6 +42,8 @@ function PhotosAndUpload(props) {
     const [fifthImageBase, setFifthImageBase] = useState('');
     const [sixthImageBase, setSixthImageBase] = useState('');
     const [spinnerOnButton, setSpinnerOnButton] = useState(false);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [imgaeInstructions, setImageInstructions] = useState('');
 
 
     const options = {
@@ -57,6 +67,7 @@ function PhotosAndUpload(props) {
                 } else {
                     source = { uri: response.uri }
                 }
+                setIsModalVisible(false)
                 setImage(source)
                 currentImage(false)
                 nextImage(true)
@@ -67,37 +78,43 @@ function PhotosAndUpload(props) {
 
     function firstImageOnPress() {
         if (isFirstImageClickable) {
-            getImage(setFirstImage, setIsFirstImageClickable, setIsSecondImageClickable, setFirstImageBase);
+            setImageInstructions(firstImageInstructions);
+            setIsModalVisible(true)
         }
     }
 
     function secondImageOnPress() {
         if (isSecondImageClickable) {
-            getImage(setSecondImage, setIsSecondImageClickable, setIsThirdImageClickable, setSecondImageBase);
+            setImageInstructions(secondImageInstructions);
+            setIsModalVisible(true)
         }
     }
 
     function thirdImageOnPress() {
         if (isThirdImageClickable) {
-            getImage(setThirdImage, setIsThirdImageClickable, setIsForthImageClickable, setThirdImageBase);
+            setImageInstructions(thirdImageInstructions);
+            setIsModalVisible(true)
         }
     }
 
     function forthImageOnPress() {
         if (isForthImageClickable) {
-            getImage(setFourthImage, setIsForthImageClickable, setIsFifthImageClickable, setFourthImageBase);
+            setImageInstructions(forthImageInstructions);
+            setIsModalVisible(true)
         }
     }
 
     function fifthImageOnPress() {
         if (isFifthImageClickable) {
-            getImage(setFifthImage, setIsFifthImageClickable, setIsSixImageClickable, setFifthImageBase);
+            setImageInstructions(fifthImageInstructions);
+            setIsModalVisible(true)
         }
     }
 
     function sixImageOnPress() {
         if (isSixImageClickable) {
-            getImage(setSixthImage, setIsSixImageClickable, setIsFirstImageClickable, setSixthImageBase);
+            setImageInstructions(sixthImageInstructions);
+            setIsModalVisible(true)
         }
     }
 
@@ -135,16 +152,30 @@ function PhotosAndUpload(props) {
         }
     }
 
+    function onPressModalImageButton() {
+        if (isFirstImageClickable) {
+            getImage(setFirstImage, setIsFirstImageClickable, setIsSecondImageClickable, setFirstImageBase);
+        } else if (isSecondImageClickable) {
+            getImage(setSecondImage, setIsSecondImageClickable, setIsThirdImageClickable, setSecondImageBase);
+        } else if (isThirdImageClickable) {
+            getImage(setThirdImage, setIsThirdImageClickable, setIsForthImageClickable, setThirdImageBase);
+        } else if (isForthImageClickable) {
+            getImage(setFourthImage, setIsForthImageClickable, setIsFifthImageClickable, setFourthImageBase);
+        } else if (isFifthImageClickable) {
+            getImage(setFifthImage, setIsFifthImageClickable, setIsSixImageClickable, setFifthImageBase);
+        } else if (isSixImageClickable) {
+            getImage(setSixthImage, setIsSixImageClickable, setIsFirstImageClickable, setSixthImageBase);
+        }
+    }
+
     function ShowDetailModal() {
         return (
-            <Modal isVisible={true}>
+            <Modal isVisible={isModalVisible}>
                 <View style={{ height: "60%", backgroundColor: 'white', padding: 8 }}>
                     <ScrollView>
                         <Text style={styles.modalText}>
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-                    </Text>
+                            {imgaeInstructions}
+                        </Text>
                     </ScrollView>
                     <View style={styles.modalFooter}>
                         <View style={styles.footerDivider} />
@@ -152,10 +183,12 @@ function PhotosAndUpload(props) {
                             <CustomButton
                                 text={"Cancel"}
                                 style={styles.modalButtonCancel}
+                                onPress={() => setIsModalVisible(false)}
                             />
                             <CustomButton
                                 text={"Select Image"}
                                 style={styles.modalButtonImage}
+                                onPress={onPressModalImageButton}
                             />
                         </View>
                     </View>
