@@ -1,4 +1,4 @@
-package com.designmynewSmile;
+package com.designmynewsmile;
 
 import com.facebook.react.ReactActivity;
 

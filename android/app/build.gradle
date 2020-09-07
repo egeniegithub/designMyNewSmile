@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.designmynewSmile"
+        applicationId "com.designmynewsmile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
