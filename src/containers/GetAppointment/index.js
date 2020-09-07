@@ -18,27 +18,29 @@ function GetAppointment(props) {
     const [noteForDoctor, setNoteForDoctor] = useState('');
     const [spinnerOnButton, setSpinnerOnButton] = useState(false);
     function SingleSimle() {
+        const { designImage } = props.route.params;
         return (
             <View style={styles.singleSmileContainer}>
                 <View style={styles.textWithCheckBoxContainer}>
                     <CheckBox checked={true} color={colors.Green} style={styles.checkBox} />
-                    <Text style={styles.designText}>Design #1</Text>
+                    <Text style={styles.designText}>Selected Design</Text>
                 </View>
                 <Image
-                    source={require("../../assets/splash.png")}
+                    source={{ uri: designImage }}
                     style={styles.designImage}
                 />
             </View>
         )
     }
 
-    function onPressMenuIcon() {
-        props.navigation.toggleDrawer()
+    function onPressGoBack() {
+        props.navigation.goBack()
     }
 
     async function onPressSendRequest() {
+        const { designId } = props.route.params;
         setSpinnerOnButton(true)
-        let data = await ChooseDesignService.chooseDesign('12', appointmentDate, appointmentTime, noteForDoctor);
+        let data = await ChooseDesignService.chooseDesign(designId, appointmentDate, appointmentTime, noteForDoctor);
         if (data.status >= 200 && data.status <= 299) {
             alertMessage('Approved!', 'You will get email soon.', () => {
                 setSpinnerOnButton(false)
@@ -56,8 +58,8 @@ function GetAppointment(props) {
         <View style={{ flex: 1 }}>
             <CustomHeader
                 title="Get Appointment"
-                leftIcon="menu"
-                onPress={onPressMenuIcon}
+                leftIcon="arrow-back"
+                onPress={onPressGoBack}
             />
             <View style={styles.container}>
                 <ProgressBar stepNumber={3} />

@@ -6,6 +6,7 @@ import colors from '../../Theme/color';
 import CustomButton from '../CustomButton';
 import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
+import { alertMessage } from '../../common/functions';
 
 function SmilesScreen(props) {
     const { clinic_designs } = props.userObject;
@@ -171,8 +172,19 @@ function SmilesScreen(props) {
                 <CustomButton
                     text={"Select Design"}
                     style={styles.customButton}
-                    // onPress={() => props.navigation.navigate('GetAppointment')}
-                    onPress={() => console.log(`Here are Design @@ @ @ @ @ : ${designId}  :  ${designImage} : `)}
+                    onPress={() => {
+                        if (!firstDesign && !secondDesign && !thirdDesign && !forthDesign && !fifthDesign && !sixthDesign) {
+                            alertMessage('Empty Design!', 'Please select one design.',
+                                () => { },
+                                ''
+                            );
+                        } else {
+                            props.navigation.navigate('GetAppointment', {
+                                designId: designId,
+                                designImage: designImage
+                            });
+                        }
+                    }}
                 />
             </View>
 
