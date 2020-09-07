@@ -15,6 +15,7 @@ function InputField (props) {
                 value={props.value}
                 onChangeText={props.onChangeText}
                 disabled={props.disabled}
+                autoCapitalize={"none"}
             />
         </Item>
 
