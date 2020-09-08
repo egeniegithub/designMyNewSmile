@@ -54,13 +54,13 @@ export default class SmileDesignDetail extends Component {
           onPress={this.onPressGoBack}
         />
 
-        <View style={{ marginTop: 50 }} >
-          <Compare initial={deviceWidth / 2} draggerWidth={50} onMoveStart={this.onMoveStart} onMoveEnd={this.onMoveEnd}>
-            <Before>
-              <Image source={{ uri: originalPicture }} style={{ width: deviceWidth, height: deviceWidth / 2 }} />
+        <View style={{ marginTop: 40 }} >
+          <Compare initial={deviceWidth / 2} draggerWidth={50} onMoveStart={this.onMoveStart} onMoveEnd={this.onMoveEnd} height={400}>
+            <Before style={{height: 500}}>
+              <Image source={{ uri: originalPicture }} style={{ width: deviceWidth, height: 400 }} />
             </Before>
             <After>
-              <Image source={{ uri: clinicPicture }} style={{ width: deviceWidth, height: deviceWidth / 2 }} />
+              <Image source={{ uri: clinicPicture }} style={{ width: deviceWidth, height: 400 }} />
             </After>
             <DefaultDragger />
           </Compare>

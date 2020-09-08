@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         height: 400,
         margin: 20,
         borderRadius: 10,
-        resizeMode: 'stretch'
+        resizeMode: 'center'
     },
     textStyle: {
         textAlign: 'center',
