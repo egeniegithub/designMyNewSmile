@@ -34,6 +34,7 @@ export const actions = {
     setLogOut: () => {
         return {
             type: 'LOGOUT',
+            data: store.getState().user.userObject
         };
     },
     setTreatment: (treatment, question1, question2, imagesArray) => async dispatch => {

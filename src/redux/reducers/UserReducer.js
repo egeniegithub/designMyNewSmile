@@ -24,7 +24,7 @@ const UserReducer = (state = initialState, action) => {
             };
         case types.LOGOUT:
             return {
-                userObject: null,
+                userObject: action.data,
                 token: null,
             };
         case types.UPDATEPROFILE:
