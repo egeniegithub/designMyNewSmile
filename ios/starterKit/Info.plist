@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>starterKit</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -38,15 +38,15 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) would like to use your camera to take pictures for clinics</string>
+	<string>Design My New Smile would like to use your camera to take pictures for clinics</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Design My New Smile would like to use your Location to send it for clinics</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) would like to use your microphone to record videos for clinics</string>
+	<string>Design My New Smile would like to use your microphone to record videos for clinics</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>$(PRODUCT_NAME) would like to save photos to your photo gallery to send pictures to clinics</string>
+	<string>Design My New Smile would like to save photos to your photo gallery to send pictures to clinics</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) would like access to your photo gallery to send pictures to clinics</string>
+	<string>Design My New Smile would like access to your photo gallery to send pictures to clinics</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>

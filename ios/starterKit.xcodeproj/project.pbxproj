@@ -46,7 +46,7 @@
 		00E356F21AD99517003FC87E /* starterKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = starterKitTests.m; sourceTree = "<group>"; };
 		00FAD25952E8522AFC13C66A /* Pods-starterKit-starterKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-starterKit-starterKitTests.debug.xcconfig"; path = "Target Support Files/Pods-starterKit-starterKitTests/Pods-starterKit-starterKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0F33EEE9510C2CD0678547E8 /* libPods-starterKit-starterKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-starterKit-starterKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07F961A680F5B00A75B9A /* starterKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = starterKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Design My New Smile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Design My New Smile.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = starterKit/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = starterKit/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* starterKit.app */,
+				13B07F961A680F5B00A75B9A /* Design My New Smile.app */,
 				00E356EE1AD99517003FC87E /* starterKitTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* starterKit-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* starterKit-tvOSTests.xctest */,
@@ -238,7 +238,7 @@
 			);
 			name = starterKit;
 			productName = starterKit;
-			productReference = 13B07F961A680F5B00A75B9A /* starterKit.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Design My New Smile.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* starterKit-tvOS */ = {
@@ -293,8 +293,9 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = KN73HPJBTV;
+						DevelopmentTeam = X8MNRL957W;
 						LastSwiftMigration = 1120;
+						ProvisioningStyle = Manual;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -727,8 +728,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KN73HPJBTV;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = X8MNRL957W;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -741,8 +744,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.egenie10183;
-				PRODUCT_NAME = starterKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.designmysmile;
+				PRODUCT_NAME = "Design My New Smile";
+				PROVISIONING_PROFILE_SPECIFIER = "egenie development profile";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -755,8 +759,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KN73HPJBTV;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = X8MNRL957W;
 				INFOPLIST_FILE = starterKit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -764,8 +770,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.egenie10183;
-				PRODUCT_NAME = starterKit;
+				PRODUCT_BUNDLE_IDENTIFIER = com.designmysmile;
+				PRODUCT_NAME = "Design My New Smile";
+				PROVISIONING_PROFILE_SPECIFIER = "egenie development profile";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
