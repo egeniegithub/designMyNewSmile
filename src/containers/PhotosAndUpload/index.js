@@ -230,7 +230,7 @@ function PhotosAndUpload(props) {
                             />
                             <CustomButton
                                 text={"Select Image"}
-                                style={styles.modalButtonImage}
+                                style={[styles.modalButtonImage, {width: '39%'}]}
                                 onPress={onPressModalImageButton}
                             />
                         </View>
