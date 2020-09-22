@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
     heading: {
         color: colors.SecondryColor,
         fontSize: 18,
-        fontWeight: '700'
+        fontWeight: '700',
+        marginTop: 30
     },
     checkBox: {
         width: 20,

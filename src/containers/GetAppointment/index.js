@@ -63,7 +63,6 @@ function GetAppointment(props) {
                 onPress={onPressGoBack}
             />
             <View style={styles.container}>
-                <ProgressBar stepNumber={3} />
                 <Text style={styles.heading}>GET THE TREATMENT DONE</Text>
                 <View style={styles.singleRowSmileContainer}>
                     <SingleSimle />
