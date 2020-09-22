@@ -12,7 +12,7 @@ import { alertMessage } from '../../common/functions';
 import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
 import { CommonActions } from '@react-navigation/native';
-import CalendarPicker from '../../components/CalendarPicker';
+import CalendarPickerModal from '../../components/CalendarPickerModal';
 
 function SignUp(props) {
     const [name, setName] = useState('');
@@ -66,7 +66,7 @@ function SignUp(props) {
             <View style={styles.container}>
                 <ProgressBar stepNumber={1} />
 
-                {showDOBCalendar && <CalendarPicker
+                {showDOBCalendar && <CalendarPickerModal
                     isModalVisible={showDOBCalendar}
                     setIsModalVisible={() => setShowDOBCalendar(false)}
                 />}
