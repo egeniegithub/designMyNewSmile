@@ -8,6 +8,7 @@ import CustomButton from '../../components/CustomButton';
 import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
 import { alertMessage } from '../../common/functions';
+import BottomBar from '../../components/BottomBar';
 
 
 
@@ -80,7 +81,7 @@ function Profile(props) {
                         customButtonClick={spinnerOnButton}
                     />
                 </KeyboardAwareScrollView>
-
+                <BottomBar currentTab={2} token={props.token} navigation={props.navigation}/>
             </View>
 
         </View>
@@ -90,6 +91,7 @@ function Profile(props) {
 const mapStateToProps = state => {
     return {
         userObject: state.user.userObject,
+        token: state.user.token,
     };
 };
 

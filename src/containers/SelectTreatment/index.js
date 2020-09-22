@@ -9,6 +9,7 @@ import ProgressBar from './../../components/ProgressBar';
 import RadioForm from 'react-native-simple-radio-button';
 import colors from '../../Theme/color';
 import BottomBar from '../../components/BottomBar';
+import { connect } from 'react-redux';
 
 function SelectTreatment(props) {
     const [radioButtonText, setRadioButtonText] = useState('Ceramic Veneers')
@@ -95,10 +96,17 @@ function SelectTreatment(props) {
                     />
                 </KeyboardAwareScrollView>
 
-                <BottomBar currentTab={2} />
+                <BottomBar currentTab={2} token={props.token} navigation={props.navigation}/>
             </View>
         </View>
     )
 }
 
-export default SelectTreatment;
+const mapStateToProps = state => {
+    return {
+        token: state.user.token,
+    };
+};
+
+
+export default connect(mapStateToProps)(SelectTreatment);

@@ -1,10 +1,21 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './style';
-import { Icon, Footer, FooterTab, Button} from 'native-base';
+import { Icon, Footer, FooterTab, Button } from 'native-base';
 import colors from '../../Theme/color';
+import { CommonActions } from '@react-navigation/native';
 
 function BottomBar(props) {
+    function resetStack(name) {
+        props.navigation.dispatch(
+            CommonActions.reset({
+                index: 1,
+                routes: [
+                    { name: name },
+                ],
+            })
+        );
+    }
     return (
         <View style={styles.container}>
             <Footer>
@@ -13,10 +24,13 @@ function BottomBar(props) {
                         <Icon name="home" style={[styles.icon, { color: props.currentTab === 1 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 1 ? colors.Green : colors.PrimaryColor }]}>Home</Text>
                     </View>
-                    <View style={styles.itemContainer}>
+                    <TouchableOpacity
+                        style={styles.itemContainer}
+                        onPress={() => props.token && resetStack('Profile')}
+                    >
                         <Icon name="person" style={[styles.icon, { color: props.currentTab === 2 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 2 ? colors.Green : colors.PrimaryColor }]}>Profile</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={styles.itemContainer}>
                         <Icon name="camera" style={[styles.icon, { color: props.currentTab === 3 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 3 ? colors.Green : colors.PrimaryColor }]}>Take Photos</Text>
@@ -25,10 +39,10 @@ function BottomBar(props) {
                         <Icon name="card" style={[styles.icon, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]}>Smile Design</Text>
                     </View>
-                    {/* <View style={styles.itemContainer}>
+                    <View style={styles.itemContainer}>
                         <Icon name="paper-plane" style={[styles.icon, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]}>Contact</Text>
-                    </View> */}
+                    </View>
                 </FooterTab>
             </Footer>
         </View>

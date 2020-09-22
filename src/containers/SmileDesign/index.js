@@ -31,7 +31,7 @@ function SmileDesign(props) {
                 :
                 <SmileDesignWaiting />
             }
-            <BottomBar currentTab={4} />
+            <BottomBar currentTab={4} userObject={props.userObject} navigation={props.navigation}/>
         </View>
     )
 }
