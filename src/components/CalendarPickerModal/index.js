@@ -10,7 +10,7 @@ const CalendarPickerModal = props => {
             <Modal isVisible={true} onBackdropPress={props.setIsModalVisible}>
                 <View style={{ height: 280, backgroundColor: 'white', padding: 8 }}>
                     <CalendarPicker
-                        onDateChange={this.onDateChange}
+                        onDateChange={props.dateChanage}
                         width={width}
                     />
                 </View>

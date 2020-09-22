@@ -13,6 +13,7 @@ import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
 import { CommonActions } from '@react-navigation/native';
 import CalendarPickerModal from '../../components/CalendarPickerModal';
+import moment from 'moment';
 
 function SignUp(props) {
     const [name, setName] = useState('');
@@ -56,6 +57,11 @@ function SignUp(props) {
         }
     }
 
+    function dateChange (date) {
+        setShowDOBCalendar(false);
+        setDob(moment(date).format('YYYY/MM/DD'))
+    }
+
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader
@@ -69,6 +75,7 @@ function SignUp(props) {
                 {showDOBCalendar && <CalendarPickerModal
                     isModalVisible={showDOBCalendar}
                     setIsModalVisible={() => setShowDOBCalendar(false)}
+                    dateChanage={dateChange}
                 />}
                 <Text style={styles.signUpText}>SIGNUP NOW</Text>
                 <KeyboardAwareScrollView style={{ width: '90%', }}>
