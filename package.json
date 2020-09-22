@@ -21,6 +21,7 @@
     "native-base": "^2.13.12",
     "react": "16.11.0",
     "react-native": "0.62.2",
+    "react-native-calendar-picker": "^7.0.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-image-picker": "^2.3.3",
     "react-native-keyboard-aware-scroll-view": "^0.9.1",

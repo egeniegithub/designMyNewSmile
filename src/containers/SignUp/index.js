@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Alert } from 'react-native';
+import { View, Text, Alert, TouchableOpacity, TextInput } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './styles';
 import InputField from '../../components/InputField';
@@ -12,12 +12,14 @@ import { alertMessage } from '../../common/functions';
 import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
 import { CommonActions } from '@react-navigation/native';
+import CalendarPicker from '../../components/CalendarPicker';
 
 function SignUp(props) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNo, setPhoneNo] = useState('');
     const [dob, setDob] = useState('');
+    const [showDOBCalendar, setShowDOBCalendar] = useState(false)
     const [spinnerOnButton, setSpinnerOnButton] = useState(false);
 
     function onPressMenu() {
@@ -63,6 +65,11 @@ function SignUp(props) {
             />
             <View style={styles.container}>
                 <ProgressBar stepNumber={1} />
+
+                {showDOBCalendar && <CalendarPicker
+                    isModalVisible={showDOBCalendar}
+                    setIsModalVisible={() => setShowDOBCalendar(false)}
+                />}
                 <Text style={styles.signUpText}>SIGNUP NOW</Text>
                 <KeyboardAwareScrollView style={{ width: '90%', }}>
                     <InputField
@@ -83,7 +90,10 @@ function SignUp(props) {
                     <InputField
                         placeholder="What is your Date of Birth?"
                         value={dob}
+                        disabled={true}
                         onChangeText={text => setDob(text)}
+                        rightIcon={'calendar'}
+                        onPressRightIcon={() => setShowDOBCalendar(true)}
                     />
                     <CustomButton
                         text={"MOVE TO NEXT"}
