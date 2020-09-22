@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: '700',
         alignSelf: 'center',
-        marginTop: 25,
+        marginVertical: 20,
     },
     checkBox: {
         width: 20,
@@ -34,15 +34,16 @@ const styles = StyleSheet.create({
         marginTop: 10
     },
     singleSmileContainer: {
-        width: '45%',
-        height: '100%',
+        width: '80%',
+        height: 250,
+        alignSelf: "center"
     },
     singleRowSmileContainer: {
-        flexDirection: 'row',
-        width: '100%',
-        height: 150,
-        justifyContent: 'space-around',
-        marginTop: 30
+        // flexDirection: 'row',
+        // width: '100%',
+        // height: 150,
+        // justifyContent: 'space-around',
+        // marginTop: 30
     },
     smilesMainContainer: {
         width: '100%',
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.Green,
         width: '40%',
         alignSelf: 'center',
-        marginTop: 20
+        marginBottom: 100
     },
 
 });

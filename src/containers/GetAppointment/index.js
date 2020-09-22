@@ -34,8 +34,8 @@ function GetAppointment(props) {
         )
     }
 
-    function onPressGoBack() {
-        props.navigation.goBack()
+    function onPressMenuIcon() {
+        props.navigation.toggleDrawer()
     }
 
     async function onPressSendRequest() {
@@ -59,8 +59,8 @@ function GetAppointment(props) {
         <View style={{ flex: 1 }}>
             <CustomHeader
                 title="Get Appointment"
-                leftIcon="arrow-back"
-                onPress={onPressGoBack}
+                leftIcon="menu"
+                onPress={onPressMenuIcon}
             />
             <View style={styles.container}>
                 <Text style={styles.heading}>GET THE TREATMENT DONE</Text>
