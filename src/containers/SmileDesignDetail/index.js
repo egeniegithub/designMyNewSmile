@@ -45,7 +45,7 @@ export default class SmileDesignDetail extends Component {
   }
 
   render() {
-    const { originalPicture, clinicPicture } = this.props.route.params;
+    const { originalPicture, clinicPicture, comment } = this.props.route.params;
     return (
       <View style={{ flex: 1 }}>
         <CustomHeader
@@ -54,9 +54,9 @@ export default class SmileDesignDetail extends Component {
           onPress={this.onPressGoBack}
         />
 
-        <View style={{ marginTop: 40 }} >
+        <View style={{ marginTop: 30 }} >
           <Compare initial={deviceWidth / 2} draggerWidth={50} onMoveStart={this.onMoveStart} onMoveEnd={this.onMoveEnd} height={400}>
-            <Before style={{height: 500}}>
+            <Before style={{ height: 500 }}>
               <Image source={{ uri: originalPicture }} style={{ width: deviceWidth, height: 400 }} />
             </Before>
             <After>
@@ -65,6 +65,10 @@ export default class SmileDesignDetail extends Component {
             <DefaultDragger />
           </Compare>
         </View>
+        <ScrollView>
+          <Text style={{ marginTop: 15, marginHorizontal: 10, fontSize: 18, fontWeight: '700' }}>Doctor's Comment : </Text>
+          <Text style={{ marginHorizontal: 10, marginTop: 6, textAlign: 'justify', marginBottom: 10 }}>{`${comment}`}</Text>
+        </ScrollView>
       </View>
     );
   }
