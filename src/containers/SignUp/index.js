@@ -103,7 +103,7 @@ function SignUp(props) {
                         onPressRightIcon={() => setShowDOBCalendar(true)}
                     />
                     <CustomButton
-                        text={"MOVE TO NEXT"}
+                        text={"NEXT"}
                         style={styles.customButton}
                         onPress={!spinnerOnButton ? onPressMoveToNext : () => { }}
                         customButtonClick={spinnerOnButton}

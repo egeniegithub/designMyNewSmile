@@ -86,7 +86,7 @@ function SelectTreatment(props) {
                         onChangeText={value => { setConcernAboutTreatment(value) }}
                     />
                     <CustomButton
-                        text={"MOVE TO NEXT"}
+                        text={"NEXT"}
                         style={styles.customButton}
                         onPress={() => props.navigation.navigate('PhotosAndUpload', {
                             treatment: radioButtonText,

@@ -8,13 +8,24 @@ import InputField from '../../components/InputField';
 import CustomButton from '../../components/CustomButton'
 import CustomHeader from '../../components/CustomHeader';
 import { alertMessage } from '../../common/functions';
-
+import { CommonActions } from '@react-navigation/native';
 
 
 function Login(props) {
   const [spinnerOnButton, setSpinnerOnButton] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  function resetStack(name) {
+    props.navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [
+          { name: name },
+        ],
+      })
+    );
+  }
 
   async function onPressLoginButton() {
     if (!email || !password) {
@@ -26,8 +37,12 @@ function Login(props) {
       setSpinnerOnButton(true);
       let data = await props.login(email, password);
       if (!data.error) {
-        setSpinnerOnButton(false)
-        props.navigation.navigate('SelectTreatment');
+        // setSpinnerOnButton(false)
+        if (props.userObject.u_pic1) {
+          resetStack('SmileDesign')
+        } else if (!props.userObject.u_pic1) {
+          resetStack('SelectTreatment')
+        }
       } else {
         alertMessage('Error!', data.message,
           () => { setSpinnerOnButton(false) },
@@ -68,7 +83,7 @@ function Login(props) {
         <CustomButton
           text={"Login"}
           style={styles.customButton}
-          onPress={!spinnerOnButton ? onPressLoginButton : () => {}}
+          onPress={!spinnerOnButton ? onPressLoginButton : () => { }}
           customButtonClick={spinnerOnButton}
         />
       </View>

@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     },
     customButton: {
         backgroundColor: colors.Green,
-        width: '40%',
+        width: '35%',
         marginTop: 30,
         alignSelf: 'center'
     }
