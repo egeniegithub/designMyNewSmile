@@ -26,19 +26,25 @@ function BottomBar(props) {
                     </View>
                     <TouchableOpacity
                         style={styles.itemContainer}
-                        onPress={() => props.token && resetStack('Profile')}
+                        onPress={() => props.token && props.currentScreen !== 'Profile' && resetStack('Profile')}
                     >
                         <Icon name="person" style={[styles.icon, { color: props.currentTab === 2 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 2 ? colors.Green : colors.PrimaryColor }]}>Profile</Text>
                     </TouchableOpacity>
-                    <View style={styles.itemContainer}>
+                    <TouchableOpacity
+                        style={styles.itemContainer}
+                        onPress={() => props.token && props.currentScreen !== 'SelectTreatment' && resetStack('SelectTreatment')}
+                    >
                         <Icon name="camera" style={[styles.icon, { color: props.currentTab === 3 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 3 ? colors.Green : colors.PrimaryColor }]}>Take Photos</Text>
-                    </View>
-                    <View style={styles.itemContainer}>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={styles.itemContainer}
+                        onPress={() => props.token && props.currentScreen !== 'SmileDesign' && resetStack('SmileDesign')}
+                    >
                         <Icon name="card" style={[styles.icon, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 4 ? colors.Green : colors.PrimaryColor }]}>Smile Design</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={styles.itemContainer}>
                         <Icon name="paper-plane" style={[styles.icon, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 5 ? colors.Green : colors.PrimaryColor }]}>Contact</Text>

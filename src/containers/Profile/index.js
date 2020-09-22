@@ -81,7 +81,7 @@ function Profile(props) {
                         customButtonClick={spinnerOnButton}
                     />
                 </KeyboardAwareScrollView>
-                <BottomBar currentTab={2} token={props.token} navigation={props.navigation}/>
+                <BottomBar currentTab={2} token={props.token} navigation={props.navigation} currentScreen={'Profile'}/>
             </View>
 
         </View>

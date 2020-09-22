@@ -96,7 +96,7 @@ function SelectTreatment(props) {
                     />
                 </KeyboardAwareScrollView>
 
-                <BottomBar currentTab={2} token={props.token} navigation={props.navigation}/>
+                <BottomBar currentTab={3} token={props.token} navigation={props.navigation} currentScreen={'SelectTreatment'}/>
             </View>
         </View>
     )

@@ -11,6 +11,7 @@ import ProgressBar from '../../components/ProgressBar';
 import BottomBar from '../../components/BottomBar';
 import ChooseDesignService from '../../services/ChooseDesignService';
 import { alertMessage } from '../../common/functions';
+import { connect } from 'react-redux';
 
 function GetAppointment(props) {
     const [appointmentDate, setAppointmentDate] = useState('');
@@ -91,10 +92,17 @@ function GetAppointment(props) {
                     />
                 </KeyboardAwareScrollView>
 
-                <BottomBar currentTab={4} />
+                <BottomBar currentTab={5} token={props.token} navigation={props.navigation}/>
             </View>
         </View>
     )
 }
 
-export default GetAppointment;
+const mapStateToProps = state => {
+    return {
+        userObject: state.user.userObject,
+        token: state.user.token,
+    };
+};
+
+export default connect(mapStateToProps)(GetAppointment);

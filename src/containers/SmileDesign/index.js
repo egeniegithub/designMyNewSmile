@@ -31,7 +31,7 @@ function SmileDesign(props) {
                 :
                 <SmileDesignWaiting />
             }
-            <BottomBar currentTab={4} userObject={props.userObject} navigation={props.navigation}/>
+            <BottomBar currentTab={4} token={props.token} navigation={props.navigation} currentScreen={'SmileDesign'}/>
         </View>
     )
 }
@@ -39,6 +39,7 @@ function SmileDesign(props) {
 const mapStateToProps = state => {
     return {
         userObject: state.user.userObject,
+        token: state.user.token,
     };
 };
 
