@@ -12,12 +12,15 @@ import BottomBar from '../../components/BottomBar';
 import ChooseDesignService from '../../services/ChooseDesignService';
 import { alertMessage } from '../../common/functions';
 import { connect } from 'react-redux';
+import CalendarPickerModal from '../../components/CalendarPickerModal';
+import moment from 'moment';
 
 function GetAppointment(props) {
     const [appointmentDate, setAppointmentDate] = useState('');
     const [appointmentTime, setAppointmentTime] = useState('');
     const [noteForDoctor, setNoteForDoctor] = useState('');
     const [spinnerOnButton, setSpinnerOnButton] = useState(false);
+    const [showDOBCalendar, setShowDOBCalendar] = useState(false)
     function SingleSimle() {
         const { designImage } = props.route.params;
         return (
@@ -51,8 +54,11 @@ function GetAppointment(props) {
                 setSpinnerOnButton(false)
             }, '')
         }
+    }
 
-
+    function dateChange (date) {
+        setShowDOBCalendar(false);
+        setAppointmentDate(moment(date).format('YYYY/MM/DD'))
     }
 
     return (
@@ -63,6 +69,11 @@ function GetAppointment(props) {
                 onPress={onPressMenuIcon}
             />
             <View style={styles.container}>
+            {showDOBCalendar && <CalendarPickerModal
+                    isModalVisible={showDOBCalendar}
+                    setIsModalVisible={() => setShowDOBCalendar(false)}
+                    dateChanage={dateChange}
+                />}
                 <Text style={styles.heading}>GET THE TREATMENT DONE</Text>
                 <View style={styles.singleRowSmileContainer}>
                     <SingleSimle />
@@ -71,7 +82,9 @@ function GetAppointment(props) {
                     <InputField
                         placeholder="Select Appointment Date"
                         value={appointmentDate}
-                        onChangeText={text => setAppointmentDate(text)}
+                        disabled={true}
+                        rightIcon={'calendar'}
+                        onPressRightIcon={() => setShowDOBCalendar(true)}
                     />
                     <InputField
                         placeholder="Select Time Slot For Appointment"
