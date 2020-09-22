@@ -39,9 +39,9 @@ function GetAppointment(props) {
     }
 
     async function onPressSendRequest() {
-        const { designId } = props.route.params;
+        const { designId, clinicEmail } = props.route.params;
         setSpinnerOnButton(true)
-        let data = await ChooseDesignService.chooseDesign(designId, appointmentDate, appointmentTime, noteForDoctor);
+        let data = await ChooseDesignService.chooseDesign(designId, appointmentDate, appointmentTime, noteForDoctor, clinicEmail);
         if (data.status >= 200 && data.status <= 299) {
             alertMessage('Approved!', 'You will get email soon.', () => {
                 setSpinnerOnButton(false)

@@ -12,6 +12,7 @@ function SmilesScreen(props) {
     const { clinic_designs } = props.userObject;
     const [designId, setDesignId] = useState('');
     const [designImage, setDesignImage] = useState('');
+    const [clinicEmail, setClinicEmail] = useState('');
     const [firstDesign, setFirstDesign] = useState(false);
     const [secondDesign, setSecondDesign] = useState(false);
     const [thirdDesign, setThirdDesign] = useState(false);
@@ -91,6 +92,7 @@ function SmilesScreen(props) {
                                 setCheckBoxDesign(setFirstChecboxState)
                                 setDesignId(clinic_designs[0].d_id)
                                 setDesignImage(clinic_designs[0].d_aimage)
+                                setClinicEmail(clinic_designs[0].clinic_email)
                             }}
                         />
                     }
@@ -106,6 +108,7 @@ function SmilesScreen(props) {
                                 setCheckBoxDesign(setSecondChecboxState)
                                 setDesignId(clinic_designs[1].d_id)
                                 setDesignImage(clinic_designs[1].d_aimage)
+                                setClinicEmail(clinic_designs[1].clinic_email)
                             }}
                         />
                     }
@@ -125,6 +128,7 @@ function SmilesScreen(props) {
                                     setCheckBoxDesign(setThirdChecboxState)
                                     setDesignId(clinic_designs[2].d_id)
                                     setDesignImage(clinic_designs[2].d_aimage)
+                                    setClinicEmail(clinic_designs[2].clinic_email)
                                 }}
                             />
                         }
@@ -139,6 +143,7 @@ function SmilesScreen(props) {
                                     setCheckBoxDesign(setForthChecboxState)
                                     setDesignId(clinic_designs[3].d_id)
                                     setDesignImage(clinic_designs[3].d_aimage)
+                                    setClinicEmail(clinic_designs[3].clinic_email)
                                 }}
                             />
                         }
@@ -159,6 +164,7 @@ function SmilesScreen(props) {
                                     setCheckBoxDesign(setFifthChecboxState)
                                     setDesignId(clinic_designs[4].d_id)
                                     setDesignImage(clinic_designs[4].d_aimage)
+                                    setClinicEmail(clinic_designs[4].clinic_email)
                                 }}
                             />
                         }
@@ -173,6 +179,7 @@ function SmilesScreen(props) {
                                     setCheckBoxDesign(setSixthChecboxState)
                                     setDesignId(clinic_designs[5].d_id)
                                     setDesignImage(clinic_designs[5].d_aimage)
+                                    setClinicEmail(clinic_designs[5].clinic_email)
                                 }}
                             />
                         }
@@ -190,7 +197,8 @@ function SmilesScreen(props) {
                         } else {
                             props.navigation.navigate('GetAppointment', {
                                 designId: designId,
-                                designImage: designImage
+                                designImage: designImage,
+                                clinicEmail: clinicEmail
                             });
                         }
                     }}
