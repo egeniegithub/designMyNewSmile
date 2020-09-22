@@ -367,13 +367,14 @@ function PhotosAndUpload(props) {
                     customButtonClick={spinnerOnButton}
                 />
             </View>
-            <BottomBar currentTab={3} />
+            <BottomBar currentTab={3} token={props.token} navigation={props.navigation} currentScreen={'SelectTreatment'}/>
         </View>
     )
 }
 
 const mapStateToProps = state => ({
     userObject: state.user.userObject,
+    token: state.user.token,
 });
 
 const mapDispatchToProps = dispatch => {

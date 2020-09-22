@@ -17,6 +17,8 @@ function Profile(props) {
     const [name, setName] = useState(u_fname);
     const [email, setEmail] = useState(u_email);
     const [phoneNo, setPhoneNo] = useState(u_contact);
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [spinnerOnButton, setSpinnerOnButton] = useState(false);
 
     function onPressMenu() {
@@ -24,18 +26,25 @@ function Profile(props) {
     }
 
     async function onPressUpdateProfile() {
-        setSpinnerOnButton(true);
-        let data = await props.updateProfile(name, phoneNo);
-        if (!data.error) {
-            alertMessage('Congratulation!', 'Your profile has been successfully updated.',
+        if (password !== confirmPassword) {
+            alertMessage('Mismatch Passord!', 'Please check your password.',
                 () => { setSpinnerOnButton(false) },
                 ''
             );
         } else {
-            alertMessage('Error!', data.message,
-                () => { setSpinnerOnButton(false) },
-                ''
-            );
+            setSpinnerOnButton(true);
+            let data = await props.updateProfile(name, phoneNo, password);
+            if (!data.error) {
+                alertMessage('Congratulation!', 'Your profile has been successfully updated.',
+                    () => { setSpinnerOnButton(false) },
+                    ''
+                );
+            } else {
+                alertMessage('Error!', data.message,
+                    () => { setSpinnerOnButton(false) },
+                    ''
+                );
+            }
         }
     }
 
@@ -50,21 +59,21 @@ function Profile(props) {
                 <KeyboardAwareScrollView style={{ width: '90%', }}>
                     <Text style={styles.profileHeading}>Name</Text>
                     <InputField
-                        placeholder="What is your Name?"
+                        placeholder="Name"
                         containerStyle={{ marginTop: 0 }}
                         value={name}
                         onChangeText={text => setName(text)}
                     />
                     <Text style={styles.profileHeading}>Email</Text>
                     <InputField
-                        placeholder="What is your Email Address?"
+                        placeholder="Email Address?"
                         containerStyle={{ marginTop: 0 }}
                         disabled={true}
                         value={email}
                     />
                     <Text style={styles.profileHeading}>Phone No.</Text>
                     <InputField
-                        placeholder="what is your Contact Number?"
+                        placeholder="Phone Number"
                         containerStyle={{ marginTop: 0 }}
                         value={phoneNo}
                         onChangeText={text => setPhoneNo(text)}
@@ -73,6 +82,15 @@ function Profile(props) {
                     <InputField
                         placeholder="Password"
                         containerStyle={{ marginTop: 0 }}
+                        value={password}
+                        onChangeText={text => setPassword(text)}
+                    />
+                    <Text style={styles.profileHeading}>Confirm Password</Text>
+                    <InputField
+                        placeholder="Confirm Password"
+                        containerStyle={{ marginTop: 0 }}
+                        value={confirmPassword}
+                        onChangeText={text => setConfirmPassword(text)}
                     />
                     <CustomButton
                         text={"Update Profile"}
@@ -81,7 +99,7 @@ function Profile(props) {
                         customButtonClick={spinnerOnButton}
                     />
                 </KeyboardAwareScrollView>
-                <BottomBar currentTab={2} token={props.token} navigation={props.navigation} currentScreen={'Profile'}/>
+                <BottomBar currentTab={2} token={props.token} navigation={props.navigation} currentScreen={'Profile'} />
             </View>
 
         </View>
@@ -97,7 +115,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        updateProfile: (name, phoneNo) => dispatch(actions.updateProfile(name, phoneNo)),
+        updateProfile: (name, phoneNo, password) => dispatch(actions.updateProfile(name, phoneNo, password)),
     }
 }
 

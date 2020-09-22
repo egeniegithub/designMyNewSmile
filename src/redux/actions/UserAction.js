@@ -52,8 +52,8 @@ export const actions = {
             };
         }
     },
-    updateProfile: (name, phoneNo) => async dispatch => {
-        let data = await UserService.updateProfile(name, phoneNo);
+    updateProfile: (name, phoneNo, password) => async dispatch => {
+        let data = await UserService.updateProfile(name, phoneNo, password);
         if (data.status >= 200 && data.status <= 299) {
             return dispatch({
                 type: 'UPDATEPROFILE',

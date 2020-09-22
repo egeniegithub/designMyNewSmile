@@ -18,11 +18,20 @@ export default {
         };
         return Api.post(router.signUp, params);
     },
-    updateProfile: async (u_fname, u_contact) => {
-        let params = {
-            u_fname,
-            u_contact,
-        };
+    updateProfile: async (u_fname, u_contact, u_pass) => {
+        let params;
+        if (u_pass !== '') {
+            params = {
+                u_fname,
+                u_contact,
+                u_pass
+            };
+        } else {
+            params = {
+                u_fname,
+                u_contact
+            };
+        }
         return Api.post(router.updateProfile, params);
     },
 
