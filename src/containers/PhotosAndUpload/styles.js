@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
     },
     modalText: {
        textAlign: 'justify',
+    },
+    videoTutorialButton: {
+        backgroundColor: 'red',
+        marginBottom: 10,
     }
 })
 

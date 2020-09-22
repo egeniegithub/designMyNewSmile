@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity, Platform, ScrollView } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Platform, ScrollView, Linking } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './styles';
 import CustomButton from '../../components/CustomButton';
@@ -180,7 +180,7 @@ function PhotosAndUpload(props) {
                     {
                         isFirstImageClickable && <Image
                             source={require('../../assets/instruction1.png')}
-                            style={{ width: "100%", height: "85%", resizeMode: "contain" }}
+                            style={{ width: "100%", height: "75%", resizeMode: "contain" }}
                         />
                     }
 
@@ -219,8 +219,16 @@ function PhotosAndUpload(props) {
                         />
                     }
 
-
                     <View style={styles.modalFooter}>
+                        <CustomButton
+                            text={"Video Toturial"}
+                            style={styles.videoTutorialButton}
+                            onPress={() => {
+                                Linking.openURL('https://www.youtube.com/watch?v=glP78Bp-rdE&feature=youtu.be')
+                                    .catch(err => {
+                                    })
+                            }}
+                        />
                         <View style={styles.footerDivider} />
                         <View style={styles.modalFooterRow}>
                             <CustomButton
@@ -230,7 +238,7 @@ function PhotosAndUpload(props) {
                             />
                             <CustomButton
                                 text={"Select Image"}
-                                style={[styles.modalButtonImage, {width: '39%'}]}
+                                style={[styles.modalButtonImage, { width: '39%' }]}
                                 onPress={onPressModalImageButton}
                             />
                         </View>
