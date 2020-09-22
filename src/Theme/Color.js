@@ -7,6 +7,7 @@ const colors = {
     White: 'white',
     Grey: '#727272',
     lightGrey: '#cccccc',
+    waitingScreenColor: '#E9ECF0',
 };
 
 export default colors;
