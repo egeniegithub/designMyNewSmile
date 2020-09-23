@@ -112,7 +112,7 @@ function SignUp(props) {
                     />
                 </KeyboardAwareScrollView>
 
-                <BottomBar currentTab={1} userObject={props.userObject} navigation={props.navigation}/>
+                <BottomBar currentTab={0} userObject={props.userObject} navigation={props.navigation}/>
             </View>
         </View>
     )

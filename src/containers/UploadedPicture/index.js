@@ -4,7 +4,7 @@ import styles from './style';
 import CustomHeader from "../../components/CustomHeader";
 import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';
-
+import BottomBar from '../../components/BottomBar';
 
 
 function UploadedPictures(props) {
@@ -70,6 +70,7 @@ function UploadedPictures(props) {
 
                     </ScrollView>
             }
+            <BottomBar currentTab={1} token={props.token} navigation={props.navigation} currentScreen={'UploadedPictures'}/>
 
         </View >
     )
@@ -79,6 +80,7 @@ function UploadedPictures(props) {
 const mapStateToProps = state => {
     return {
         userObject: state.user.userObject,
+        token: state.user.token,
     };
 };
 

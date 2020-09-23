@@ -70,7 +70,7 @@ function DrawerNavigator(props) {
                 <Drawer.Screen name="Dashboard" component={Navigation} />
                 {!props.token && <Drawer.Screen name="Login" component={Login} />}
                 {/* {props.token && <Drawer.Screen name="Profile" component={Profile} />} */}
-                {props.token && <Drawer.Screen name="Uploaded Pictures" component={UploadedPictures} />}
+                {/* {props.token && <Drawer.Screen name="Uploaded Pictures" component={UploadedPictures} />} */}
                 {/* {props.token && <Drawer.Screen name="Smile Design" component={SmileDesign} />} */}
                 <Drawer.Screen name="How It Work" component={HowItWork} />
                 <Drawer.Screen name="About Us" component={AboutUs} />
@@ -97,6 +97,7 @@ function Navigation() {
             <Stack.Screen name="GetAppointment" component={GetAppointment} />
             <Stack.Screen name="SmileDesignDetail" component={SmileDesignDetail} />
             <Stack.Screen name="Profile" component={Profile} />
+            <Stack.Screen name="UploadedPictures" component={UploadedPictures} />
         </Stack.Navigator>
     )
 }

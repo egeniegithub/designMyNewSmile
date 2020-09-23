@@ -20,10 +20,13 @@ function BottomBar(props) {
         <View style={styles.container}>
             <Footer>
                 <FooterTab style={styles.footerTabContainer}>
-                    <View style={styles.itemContainer}>
+                    <TouchableOpacity
+                        style={styles.itemContainer}
+                        onPress={() => props.token && props.currentScreen !== 'UploadedPictures' && resetStack('UploadedPictures')}
+                    >
                         <Icon name="home" style={[styles.icon, { color: props.currentTab === 1 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 1 ? colors.Green : colors.PrimaryColor }]}>Home</Text>
-                    </View>
+                    </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.itemContainer}
                         onPress={() => props.token && props.currentScreen !== 'Profile' && resetStack('Profile')}
