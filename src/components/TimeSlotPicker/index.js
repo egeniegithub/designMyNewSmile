@@ -1,6 +1,6 @@
 import { Icon } from 'native-base';
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableWithoutFeedback, Image } from 'react-native';
 import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 
 const TimeSlotPicker = (props) => {
@@ -22,7 +22,12 @@ const TimeSlotPicker = (props) => {
   return (
     <Menu
       ref={this.setMenuRef}
-      button={<Icon onPress={this.showMenu} name={'menu'} />}
+      button={<TouchableWithoutFeedback onPress={this.showMenu}>
+        <Image
+          source={require('../../assets/timeSlot.png')}
+          style={{ width: 30, height: 30, padding:10}}
+        />
+      </TouchableWithoutFeedback>}
     >
       <MenuItem onPress={() => this.hideMenu('Morning')}>Morning</MenuItem>
       <MenuItem onPress={() => this.hideMenu('Afternoon')}>Afternoon</MenuItem>

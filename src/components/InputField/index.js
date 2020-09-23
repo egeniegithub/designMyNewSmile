@@ -9,7 +9,7 @@ function InputField(props) {
             <Icon name={props.icon} />
             <Input
                 placeholder={props.placeholder}
-                style={{ fontSize: 15, }}
+                style={[{ fontSize: 15, }, props.style]}
                 selectionColor={colors.PrimaryColor}
                 autoCorrect={false}
                 value={props.value}
@@ -17,6 +17,7 @@ function InputField(props) {
                 disabled={props.disabled}
                 autoCapitalize={"none"}
                 pointerEvents={props.pointerEvents}
+                multiline={props.multiline}
             />
             <Icon
                 name={props.rightIcon}

@@ -102,6 +102,13 @@ function GetAppointment(props) {
                         placeholder="Note To Doctor"
                         value={noteForDoctor}
                         onChangeText={text => setNoteForDoctor(text)}
+                        style={{
+                            padding: 8,
+                            height: 100,
+                            borderColor: "grey",
+                            textAlignVertical: "top"
+                        }}
+                        multiline={true}
                     />
                     <CustomButton
                         text={"SEND REQUEST"}
