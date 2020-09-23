@@ -274,7 +274,7 @@ function PhotosAndUpload(props) {
                             />
                             :
                             <Image
-                                source={require('../../assets/upload.png')}
+                                source={require('../../assets/instructionIcon1.png')}
                                 style={styles.uploadImage}
                             />
                         }
@@ -290,7 +290,7 @@ function PhotosAndUpload(props) {
                             />
                             :
                             <Image
-                                source={require('../../assets/upload.png')}
+                                source={require('../../assets/instructionIcon2.png')}
                                 style={styles.uploadImage}
                             />
                         }
@@ -305,7 +305,7 @@ function PhotosAndUpload(props) {
                             />
                             :
                             <Image
-                                source={require('../../assets/upload.png')}
+                                source={require('../../assets/instructionIcon3.png')}
                                 style={styles.uploadImage}
                             />
                         }
@@ -323,7 +323,7 @@ function PhotosAndUpload(props) {
                             />
                             :
                             <Image
-                                source={require('../../assets/upload.png')}
+                                source={require('../../assets/instructionIcon4.png')}
                                 style={styles.uploadImage}
                             />
                         }
@@ -338,7 +338,7 @@ function PhotosAndUpload(props) {
                             />
                             :
                             <Image
-                                source={require('../../assets/upload.png')}
+                                source={require('../../assets/instructionIcon5.png')}
                                 style={styles.uploadImage}
                             />
                         }
@@ -353,7 +353,7 @@ function PhotosAndUpload(props) {
                             />
                             :
                             <Image
-                                source={require('../../assets/upload.png')}
+                                source={require('../../assets/instructionIcon6.png')}
                                 style={styles.uploadImage}
                             />
                         }
