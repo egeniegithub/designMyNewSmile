@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
 import styles from './styles';
 import SmileDesignDetail from '../SmileDesignDetail';
 import { CommonActions } from '@react-navigation/native';
-
+import colors from '../../Theme/color';
 
 function Splash(props) {
 
@@ -33,6 +33,7 @@ function Splash(props) {
 
     return (
         <View style={styles.container}>
+            <View style={{height: 25, backgroundColor: colors.PrimaryColor}}/>
             <Image
                 style={styles.splashImage}
                 source={require('../../assets/splash.png')}

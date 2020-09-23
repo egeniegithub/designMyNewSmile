@@ -7,9 +7,9 @@ const styles = StyleSheet.create({
     },
     splashImage: {
         width: '100%',
-        height: '70%',
-        resizeMode: 'contain',
-        backgroundColor: colors.PrimaryColor,
+        height: '65%',
+        resizeMode: 'stretch',
+        // backgroundColor: colors.PrimaryColor,
     },
     splashBody: {
         alignItems: 'center',
