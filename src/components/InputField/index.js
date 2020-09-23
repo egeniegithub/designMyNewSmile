@@ -22,6 +22,7 @@ function InputField(props) {
                 style={{ fontSize: 20, color: colors.PrimaryColor, }}
                 onPress={props.onPressRightIcon}
             />
+            {props.rightTimeMenu}
         </Item>
 
     )

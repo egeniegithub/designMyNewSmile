@@ -14,6 +14,7 @@ import { alertMessage } from '../../common/functions';
 import { connect } from 'react-redux';
 import CalendarPickerModal from '../../components/CalendarPickerModal';
 import moment from 'moment';
+import TimeSlotPicker from '../../components/TimeSlotPicker';
 
 function GetAppointment(props) {
     const [appointmentDate, setAppointmentDate] = useState('');
@@ -56,7 +57,7 @@ function GetAppointment(props) {
         }
     }
 
-    function dateChange (date) {
+    function dateChange(date) {
         setShowDOBCalendar(false);
         setAppointmentDate(moment(date).format('YYYY/MM/DD'))
     }
@@ -69,7 +70,7 @@ function GetAppointment(props) {
                 onPress={onPressMenuIcon}
             />
             <View style={styles.container}>
-            {showDOBCalendar && <CalendarPickerModal
+                {showDOBCalendar && <CalendarPickerModal
                     isModalVisible={showDOBCalendar}
                     setIsModalVisible={() => setShowDOBCalendar(false)}
                     dateChanage={dateChange}
@@ -89,7 +90,10 @@ function GetAppointment(props) {
                     <InputField
                         placeholder="Select Time Slot For Appointment"
                         value={appointmentTime}
-                        onChangeText={text => setAppointmentTime(text)}
+                        disabled={true}
+                        rightTimeMenu={<TimeSlotPicker 
+                        selectedTime = {(text) => {setAppointmentTime(text)}}
+                        />}
                     />
                     <InputField
                         placeholder="Send Note To Doctor"
@@ -104,7 +108,7 @@ function GetAppointment(props) {
                     />
                 </KeyboardAwareScrollView>
 
-                <BottomBar currentTab={5} token={props.token} navigation={props.navigation}/>
+                <BottomBar currentTab={5} token={props.token} navigation={props.navigation} />
             </View>
         </View>
     )
