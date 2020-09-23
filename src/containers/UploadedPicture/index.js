@@ -16,7 +16,7 @@ function UploadedPictures(props) {
     return (
         <View style={{ flex: 1 }}>
             <CustomHeader
-                title="Uploaded Pictures"
+                title="Home"
                 leftIcon="menu"
                 onPress={onPressMenuIcon}
             />
