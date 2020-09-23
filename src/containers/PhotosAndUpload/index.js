@@ -367,7 +367,7 @@ function PhotosAndUpload(props) {
                     customButtonClick={spinnerOnButton}
                 />
             </View>
-            <BottomBar currentTab={3} token={props.token} navigation={props.navigation} currentScreen={'SelectTreatment'}/>
+            <BottomBar currentTab={3} token={props.token} navigation={props.navigation} currentScreen={'PhotosAndUpload'}/>
         </View>
     )
 }

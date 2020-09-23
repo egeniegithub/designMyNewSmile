@@ -36,7 +36,7 @@ function BottomBar(props) {
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.itemContainer}
-                        onPress={() => props.token && props.currentScreen !== 'SelectTreatment' && resetStack('SelectTreatment')}
+                        onPress={() => props.token && props.currentScreen !== 'PhotosAndUpload' && resetStack('PhotosAndUpload')}
                     >
                         <Icon name="camera" style={[styles.icon, { color: props.currentTab === 3 ? colors.Green : colors.PrimaryColor }]} />
                         <Text style={[styles.textStyle, { color: props.currentTab === 3 ? colors.Green : colors.PrimaryColor }]}>Take Photos</Text>
