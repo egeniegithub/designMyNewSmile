@@ -5,7 +5,7 @@ import colors from '../../Theme/color';
 
 function InputField(props) {
     return (
-        <Item style={[styles.item, props.containerStyle]}>
+        <Item style={[styles.item, props.containerStyle]} onPress={props.onPressInputField}>
             <Icon name={props.icon} />
             <Input
                 placeholder={props.placeholder}
@@ -16,6 +16,7 @@ function InputField(props) {
                 onChangeText={props.onChangeText}
                 disabled={props.disabled}
                 autoCapitalize={"none"}
+                pointerEvents={props.pointerEvents}
             />
             <Icon
                 name={props.rightIcon}

@@ -81,22 +81,25 @@ function GetAppointment(props) {
                 </View>
                 <KeyboardAwareScrollView style={{ width: '90%', marginTop: 20 }}>
                     <InputField
-                        placeholder="Select Appointment Date"
+                        placeholder="Appointment Date"
                         value={appointmentDate}
                         disabled={true}
                         rightIcon={'calendar'}
                         onPressRightIcon={() => setShowDOBCalendar(true)}
+                        pointerEvents={'none'}
+                        onPressInputField={() => setShowDOBCalendar(true)}
                     />
                     <InputField
-                        placeholder="Select Time Slot For Appointment"
+                        placeholder="Time Slot For Appointment"
                         value={appointmentTime}
                         disabled={true}
-                        rightTimeMenu={<TimeSlotPicker 
-                        selectedTime = {(text) => {setAppointmentTime(text)}}
+                        rightTimeMenu={<TimeSlotPicker
+                            selectedTime={(text) => { setAppointmentTime(text) }}
                         />}
+                        pointerEvents={'none'}
                     />
                     <InputField
-                        placeholder="Send Note To Doctor"
+                        placeholder="Note To Doctor"
                         value={noteForDoctor}
                         onChangeText={text => setNoteForDoctor(text)}
                     />

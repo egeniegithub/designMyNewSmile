@@ -101,6 +101,8 @@ function SignUp(props) {
                         onChangeText={text => setDob(text)}
                         rightIcon={'calendar'}
                         onPressRightIcon={() => setShowDOBCalendar(true)}
+                        pointerEvents={'none'}
+                        onPressInputField={() => setShowDOBCalendar(true)}
                     />
                     <CustomButton
                         text={"NEXT"}
