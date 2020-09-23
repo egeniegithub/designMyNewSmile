@@ -18,6 +18,7 @@ function InputField(props) {
                 autoCapitalize={"none"}
                 pointerEvents={props.pointerEvents}
                 multiline={props.multiline}
+                secureTextEntry={props.secureTextEntry}
             />
             <Icon
                 name={props.rightIcon}

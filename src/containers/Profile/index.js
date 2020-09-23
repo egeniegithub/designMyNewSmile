@@ -84,6 +84,7 @@ function Profile(props) {
                         containerStyle={{ marginTop: 0 }}
                         value={password}
                         onChangeText={text => setPassword(text)}
+                        secureTextEntry={true}
                     />
                     <Text style={styles.profileHeading}>Confirm Password</Text>
                     <InputField
@@ -91,6 +92,7 @@ function Profile(props) {
                         containerStyle={{ marginTop: 0 }}
                         value={confirmPassword}
                         onChangeText={text => setConfirmPassword(text)}
+                        secureTextEntry={true}
                     />
                     <CustomButton
                         text={"Update Profile"}
