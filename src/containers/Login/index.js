@@ -40,7 +40,7 @@ function Login(props) {
         // setSpinnerOnButton(false)
         if (props.userObject.u_pic1) {
           resetStack('SmileDesign')
-        } else if (!props.userObject.u_pic1) {
+        } else {
           resetStack('SelectTreatment')
         }
       } else {

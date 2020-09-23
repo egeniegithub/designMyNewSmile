@@ -29,7 +29,7 @@ function SmileDesign(props) {
             { clinic_designs && clinic_designs.length !== 0 ?
                 <SmilesScreen navigation={props.navigation} />
                 :
-                <SmileDesignWaiting />
+                <SmileDesignWaiting userObject={props.userObject}/>
             }
             <BottomBar currentTab={4} token={props.token} navigation={props.navigation} currentScreen={'SmileDesign'}/>
         </View>
