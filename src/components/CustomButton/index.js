@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Text, Spinner } from 'native-base';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 
 
 

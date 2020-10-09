@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, Text } from 'native-base';
 import { connect } from 'react-redux';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 import styles from '../Login/styles';
 import { actions as userAction } from '../../redux/actions/UserAction';
 import CustomHeader from '../../components/CustomHeader';

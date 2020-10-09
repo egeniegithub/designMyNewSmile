@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Item, Icon } from 'native-base';
 import styles from './styles';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 
 function InputField(props) {
     return (

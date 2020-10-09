@@ -7,7 +7,7 @@ import CustomButton from '../../components/CustomButton';
 import CustomHeader from '../../components/CustomHeader';
 import ProgressBar from './../../components/ProgressBar';
 import RadioForm from 'react-native-simple-radio-button';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 import BottomBar from '../../components/BottomBar';
 import { connect } from 'react-redux';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './style';
 import { Icon, Footer, FooterTab, Button } from 'native-base';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 import { CommonActions } from '@react-navigation/native';
 
 function BottomBar(props) {
