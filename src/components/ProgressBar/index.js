@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 
 const ProgressBar = props => {
 

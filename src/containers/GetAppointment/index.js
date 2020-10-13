@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, Image } from 'react-native';
 import { CheckBox, } from 'native-base';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import styles from './style';
 import InputField from '../../components/InputField';

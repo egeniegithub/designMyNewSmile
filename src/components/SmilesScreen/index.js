@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
 import styles from './style';
 import { CheckBox, } from 'native-base';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 import CustomButton from '../CustomButton';
 import { connect } from 'react-redux';
 import { actions } from '../../redux/actions/UserAction';

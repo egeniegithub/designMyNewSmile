@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
 import styles from './styles';
-import colors from '../../Theme/color';
+import colors from '../../Theme/colors';
 
 function CustomHeader(props) {
     return (
